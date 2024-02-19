@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Cryptograhy/String encryption">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -46,8 +45,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708362852854</updated>
-      <workItem from="1708362854370" duration="5447000" />
+      <workItem from="1708362854370" duration="7639000" />
     </task>
+    <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
+      <created>1708380544649</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1708380544649</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -63,5 +69,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cryptograhy/String encryption" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cryptograhy/String encryption" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="javax.crypto.IllegalBlockSizeException" package="javax.crypto" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
