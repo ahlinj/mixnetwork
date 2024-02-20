@@ -1,14 +1,14 @@
+import java.security.PublicKey;
+
 public class Message {
     long timestamp;
-    String signature;
-    String sender;
+    PublicKey sender;
     String body;
 
 
-    public Message(String body) {
+    public Message(String body, PublicKey pk) {
         this.body = body;
-        this.sender = ""; // public key
-        this.signature = ""; // ecc sign
+        this.sender = pk;
         this.timestamp = System.currentTimeMillis();
     }
 }
