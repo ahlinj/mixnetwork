@@ -1,8 +1,9 @@
 import java.security.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PKI {
-    public static Map<String, PublicKey> PKusermap = new HashMap<>();
+    public static Map<String, PublicKey> PKusermap = new ConcurrentHashMap<>();
 
     public static void addUser(String username){
         try{
@@ -12,6 +13,11 @@ public class PKI {
         }catch(NoSuchAlgorithmException e){
             e.printStackTrace();
         }
+    }
+
+    public static void removeUser(String username) {
+        PKusermap.remove(username);
+        Main.prKey.remove();
     }
 
 

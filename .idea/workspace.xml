@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="PKI - addUser">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="added ThreadLocals">
       <change afterPath="$PROJECT_DIR$/src/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1708362852854</updated>
       <workItem from="1708362854370" duration="11602000" />
-      <workItem from="1708462744057" duration="8322000" />
+      <workItem from="1708462744057" duration="10128000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -79,7 +78,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1708550436422</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="added ThreadLocals">
+      <created>1708554604795</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1708554604795</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,7 +107,8 @@
     <MESSAGE value="hybrid encryption/decryption" />
     <MESSAGE value="IP, port, serverSocket" />
     <MESSAGE value="PKI - addUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="PKI - addUser" />
+    <MESSAGE value="added ThreadLocals" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ThreadLocals" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
