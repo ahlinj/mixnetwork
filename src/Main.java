@@ -1,35 +1,33 @@
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.ServerSocket;
-import java.net.SocketException;
-import java.security.KeyPair;
+import java.net.*;
+import java.security.*;
 import java.util.Enumeration;
 
 public class Main {
     public static String myIp;
-    private static ServerSocket serverSocket;
-    private static int port;
-    public static KeyPair key;
+    private static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
+    private static final ThreadLocal<Integer> port = new ThreadLocal<>();
+    public static final ThreadLocal<PrivateKey> prKey = new ThreadLocal<>();
     public static void main(String[] args) throws Exception {
-        KeyPair keypair1RSA = Cryptography.generateRSAKey();
-        KeyPair keypair2RSA = Cryptography.generateRSAKey();
-        KeyPair keypair3RSA = Cryptography.generateRSAKey();
-
         findMyIp();
-        initializeServerSocket();
 
-        Message mes = new Message("Hello",keypair1RSA.getPublic());
-        System.out.println(mes.body);
-        System.out.println(mes.body = Cryptography.encrypt(mes.body, keypair1RSA.getPublic()));
-        System.out.println(mes.body = Cryptography.encrypt(mes.body, keypair2RSA.getPublic()));
-        System.out.println(mes.body = Cryptography.encrypt(mes.body, keypair3RSA.getPublic()));
+        Thread t1 = new Thread(() -> {
+            findMyIp();
+            initializeServerSocket();
+            closeServerSocket();
+            PKI.addUser("Jaka1");
+            System.out.println("1: "+PKI.PKusermap.get("Jaka2"));
+        });
+        Thread t2 = new Thread(() -> {
+            findMyIp();
+            initializeServerSocket();
+            closeServerSocket();
+            PKI.addUser("Jaka2");
+            System.out.println("2: "+PKI.PKusermap.get("Jaka1"));
+        });
 
-        System.out.println(mes.body = Cryptography.decrypt(mes.body, keypair3RSA.getPrivate()));
-        System.out.println(mes.body = Cryptography.decrypt(mes.body, keypair2RSA.getPrivate()));
-        System.out.println(mes.body = Cryptography.decrypt(mes.body, keypair1RSA.getPrivate()));
-
-        closeServerSocket();
+        t1.start();
+        t2.start();
     }
 
 
@@ -56,19 +54,22 @@ public class Main {
 
     public static void initializeServerSocket() {
         try {
-            serverSocket = new ServerSocket(0);
-            port = serverSocket.getLocalPort();
-            System.out.println("Server started on port: " + serverSocket.getLocalPort());
+            ServerSocket ss = new ServerSocket(0);
+            serverSocket.set(ss);
+            port.set(ss.getLocalPort());
+            System.out.println("Server started on port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
     public static void closeServerSocket() {
         try {
-            if (serverSocket != null && !serverSocket.isClosed()) {
-                serverSocket.close();
-                System.out.println("Server socket closed.");
+            ServerSocket ss = serverSocket.get();
+            if (ss != null && !ss.isClosed()) {
+                ss.close();
+                System.out.println("Server socket closed for current thread.");
             }
         } catch (IOException e) {
             e.printStackTrace();
