@@ -16,7 +16,7 @@ public class PKI {
         }
     }
     public static void addUserPort(String username, int port){
-        PortUserMap.put(username, Main.port.get());
+        PortUserMap.put(username, port);
     }
 
     public static void removeUser(String username) {

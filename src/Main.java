@@ -2,32 +2,42 @@ import java.io.IOException;
 import java.net.*;
 import java.security.*;
 import java.util.Enumeration;
+import java.util.Map;
 
 public class Main {
     public static String myIp;
-    private static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
-    private static final ThreadLocal<Integer> port = new ThreadLocal<>();
+    public static final ThreadLocal<String> username = new ThreadLocal<>();
+    public static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
+    public static final ThreadLocal<Integer> port = new ThreadLocal<>();
     public static final ThreadLocal<PrivateKey> prKey = new ThreadLocal<>();
+
     public static void main(String[] args) throws Exception {
-        findMyIp();
+        //FOR ENTRY POINT
+        /*
 
-        Thread t1 = new Thread(() -> {
-            findMyIp();
-            initializeServerSocket();
-            closeServerSocket();
-            PKI.addUser("Jaka1");
-            System.out.println("1: "+PKI.PKusermap.get("Jaka2"));
-        });
-        Thread t2 = new Thread(() -> {
-            findMyIp();
-            initializeServerSocket();
-            closeServerSocket();
-            PKI.addUser("Jaka2");
-            System.out.println("2: "+PKI.PKusermap.get("Jaka1"));
-        });
+        Main.findMyIp();
 
-        t1.start();
-        t2.start();
+        Main.username.set("EntryPoint");
+        Main.initializeServerSocket();
+
+        Server server = new Server();
+        server.setServerSocket(Main.serverSocket.get());
+        server.start();
+
+
+
+         */
+
+
+
+        //FOR USERS
+
+        Main.findMyIp();
+        Main.username.set("User1");
+        Main.initializeServerSocket();
+
+        Client client = new Client();
+        client.start();
     }
 
 
@@ -57,6 +67,7 @@ public class Main {
             ServerSocket ss = new ServerSocket(0);
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
+            PKI.addUserPort(username.get(), ss.getLocalPort());
             System.out.println("Server started on port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();

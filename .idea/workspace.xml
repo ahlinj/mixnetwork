@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="added ThreadLocals">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="User-port hashmap">
       <change afterPath="$PROJECT_DIR$/src/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +38,15 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Mixnet" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,7 +56,13 @@
       <option name="presentableId" value="Default" />
       <updated>1708362852854</updated>
       <workItem from="1708362854370" duration="11602000" />
-      <workItem from="1708462744057" duration="10128000" />
+      <workItem from="1708462744057" duration="10364000" />
+      <workItem from="1708636886018" duration="3404000" />
+      <workItem from="1708893233003" duration="611000" />
+      <workItem from="1708978746552" duration="594000" />
+      <workItem from="1709038167386" duration="7252000" />
+      <workItem from="1709121928650" duration="10634000" />
+      <workItem from="1710520884498" duration="5755000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -84,7 +100,19 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1708554604795</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="ConccurentHashMap and removeUser in PKI">
+      <created>1708556336776</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1708556336776</updated>
+    </task>
+    <task id="LOCAL−00008" summary="User-port hashmap">
+      <created>1709123664011</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1709123664011</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +136,9 @@
     <MESSAGE value="IP, port, serverSocket" />
     <MESSAGE value="PKI - addUser" />
     <MESSAGE value="added ThreadLocals" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ThreadLocals" />
+    <MESSAGE value="ConccurentHashMap and removeUser in PKI" />
+    <MESSAGE value="User-port hashmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="User-port hashmap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
