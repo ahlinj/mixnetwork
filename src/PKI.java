@@ -33,5 +33,4 @@ public class PKI {
         LayerUserMap.put(username,layer);
         System.out.println("Layer number: "+layer+" has been assigned to: "+username);
     }
-
 }

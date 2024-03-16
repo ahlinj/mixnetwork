@@ -11,11 +11,11 @@ public class Main {
     public static final ThreadLocal<PrivateKey> prKey = new ThreadLocal<>();
 
     public static void main(String[] args) throws Exception {
+        UserInerface userInerface = new UserInerface();
         //FOR ENTRY POINT
 /*
         Main.findMyIp();
-
-        Main.username.set("EntryPoint");
+        Main.username.set(userInerface.enterUsername());
         Main.initializeServerSocket();
 
         Server server = new Server(Main.serverSocket.get());
@@ -43,14 +43,12 @@ public class Main {
         }
 
 
-
  */
-
 
         //FOR USERS
 
         Main.findMyIp();
-        Main.username.set("User1");
+        Main.username.set(userInerface.enterUsername());
         Main.initializeServerSocket();
 
         Server server = new Server(Main.serverSocket.get());
@@ -60,8 +58,9 @@ public class Main {
         client.start();
 
 
-    }
 
+
+    }
 
     public static void findMyIp(){
         try {
