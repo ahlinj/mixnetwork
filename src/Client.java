@@ -2,21 +2,24 @@ import java.io.*;
 import java.net.Socket;
 
 public class Client extends Thread{
-    private String userID;
 
-    public Client(String username) {
+    private final String userID;
+    private final int serverSocketPort;
+
+    public Client(String username, int serverSocketPort) {
         this.userID = username;
+        this.serverSocketPort = serverSocketPort;
     }
 
     @Override
     public void run(){
-        int entryPointPort = 56145;
+        int entryPointPort = 57212;
             try {
                 Socket socket = new Socket("localhost", entryPointPort);
                 System.out.println("Connected from port: " + socket.getLocalPort() + " to port: " + entryPointPort);
 
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                out.println(userID);
+                out.println(userID+":"+serverSocketPort);
             } catch (IOException e) {
                 System.err.println(e.getMessage());
             }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Adding usernames,ports to hashmap at signin">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Constructors in Server and Client and small fixes">
       <change afterPath="$PROJECT_DIR$/src/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
@@ -64,7 +64,7 @@
       <workItem from="1709038167386" duration="7252000" />
       <workItem from="1709121928650" duration="10634000" />
       <workItem from="1710520884498" duration="6021000" />
-      <workItem from="1710585099145" duration="3333000" />
+      <workItem from="1710585099145" duration="5424000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -126,7 +126,13 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1710586810422</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="Constructors in Server and Client and small fixes">
+      <created>1710589128908</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1710589128908</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +160,8 @@
     <MESSAGE value="User-port hashmap" />
     <MESSAGE value="Entry Point simple connection&#10;-Server,Client classes" />
     <MESSAGE value="Adding usernames,ports to hashmap at signin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding usernames,ports to hashmap at signin" />
+    <MESSAGE value="Constructors in Server and Client and small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Constructors in Server and Client and small fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

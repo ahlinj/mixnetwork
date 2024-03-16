@@ -1,8 +1,7 @@
 import java.io.IOException;
 import java.net.*;
 import java.security.*;
-import java.util.Enumeration;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static String myIp;
@@ -13,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //FOR ENTRY POINT
-/*
+        /*
         Main.findMyIp();
 
         Main.username.set("EntryPoint");
@@ -33,25 +32,19 @@ public class Main {
                 e.printStackTrace();
             }
         }
-
-
-
- */
+         */
 
         //FOR USERS
 
-
         Main.findMyIp();
-        Main.username.set("User3");
+        Main.username.set("User1");
         Main.initializeServerSocket();
 
         Server server = new Server(Main.serverSocket.get());
         server.start();
 
-        Client client = new Client(Main.username.get());
+        Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
-
-
 
     }
 

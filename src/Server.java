@@ -26,14 +26,18 @@ public class Server extends Thread{
         System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
 
         String clientMessageUsername;
+        String clientMessagePort;
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            clientMessageUsername = in.readLine();
+            String clientMessage = in.readLine();
+            clientMessageUsername = clientMessage.split(":")[0];
+            clientMessagePort = clientMessage.split(":")[1];
             System.out.println("Username: " + clientMessageUsername);
+            System.out.println("Server port: " + clientMessagePort);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        PKI.addUserPort(clientMessageUsername, clientSocket.getPort());
+        PKI.addUserPort(clientMessageUsername,Integer.parseInt(clientMessagePort));
 
     }
 
