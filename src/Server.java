@@ -38,7 +38,7 @@ public class Server extends Thread{
             throw new RuntimeException(e);
         }
         PKI.addUserPort(clientMessageUsername,Integer.parseInt(clientMessagePort));
-
+        PKI.addUserLayer(clientMessageUsername);
     }
 
 }

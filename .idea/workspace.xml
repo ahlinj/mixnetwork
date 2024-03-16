@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Constructors in Server and Client and small fixes">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Storing server socket ports in hash map">
       <change afterPath="$PROJECT_DIR$/src/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +65,7 @@
       <workItem from="1709038167386" duration="7252000" />
       <workItem from="1709121928650" duration="10634000" />
       <workItem from="1710520884498" duration="6021000" />
-      <workItem from="1710585099145" duration="5424000" />
+      <workItem from="1710585099145" duration="8786000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -132,7 +133,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1710589128908</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Storing server socket ports in hash map">
+      <created>1710592164157</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1710592164157</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +168,8 @@
     <MESSAGE value="Entry Point simple connection&#10;-Server,Client classes" />
     <MESSAGE value="Adding usernames,ports to hashmap at signin" />
     <MESSAGE value="Constructors in Server and Client and small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Constructors in Server and Client and small fixes" />
+    <MESSAGE value="Storing server socket ports in hash map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Storing server socket ports in hash map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

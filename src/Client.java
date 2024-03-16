@@ -13,7 +13,7 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        int entryPointPort = 57212;
+        int entryPointPort = 61385;
             try {
                 Socket socket = new Socket("localhost", entryPointPort);
                 System.out.println("Connected from port: " + socket.getLocalPort() + " to port: " + entryPointPort);

@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //FOR ENTRY POINT
-        /*
+/*
         Main.findMyIp();
 
         Main.username.set("EntryPoint");
@@ -31,8 +31,21 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+             try {
+                 Thread.sleep(4000);
+                 System.out.println("LayerUserMap:");
+                 for (Map.Entry<String, Integer> entry : PKI.LayerUserMap.entrySet()) {
+                     System.out.println(entry.getKey() + ": " + entry.getValue());
+                 }
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
         }
-         */
+
+
+
+ */
+
 
         //FOR USERS
 
@@ -45,6 +58,7 @@ public class Main {
 
         Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
+
 
     }
 
