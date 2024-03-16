@@ -5,9 +5,11 @@ public class Server extends Thread{
 
     private ServerSocket serverSocket;
 
-    public void setServerSocket(ServerSocket serverSocket) {
+    public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
+
+
     @Override
     public void run() {
         while (true) {

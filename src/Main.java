@@ -14,14 +14,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //FOR ENTRY POINT
 /*
-
         Main.findMyIp();
 
         Main.username.set("EntryPoint");
         Main.initializeServerSocket();
 
-        Server server = new Server();
-        server.setServerSocket(Main.serverSocket.get());
+        Server server = new Server(Main.serverSocket.get());
         server.start();
 
          while (true){
@@ -40,18 +38,19 @@ public class Main {
 
  */
 
-
-
-
         //FOR USERS
 
 
         Main.findMyIp();
-        Main.username.set("User1");
+        Main.username.set("User3");
         Main.initializeServerSocket();
 
-        Client client = new Client();
+        Server server = new Server(Main.serverSocket.get());
+        server.start();
+
+        Client client = new Client(Main.username.get());
         client.start();
+
 
 
     }
