@@ -22,6 +22,17 @@ public class Server extends Thread{
     }
     private void handleConnection(Socket clientSocket) {
         System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
+
+        String clientMessageUsername;
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            clientMessageUsername = in.readLine();
+            System.out.println("Username: " + clientMessageUsername);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        PKI.addUserPort(clientMessageUsername, clientSocket.getPort());
+
     }
 
 }

@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //FOR ENTRY POINT
-        /*
+/*
 
         Main.findMyIp();
 
@@ -24,13 +24,27 @@ public class Main {
         server.setServerSocket(Main.serverSocket.get());
         server.start();
 
+         while (true){
+            try {
+                Thread.sleep(4000);
+                System.out.println("PortUserMap:");
+                for (Map.Entry<String, Integer> entry : PKI.PortUserMap.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
 
-         */
+
+ */
+
 
 
 
         //FOR USERS
+
 
         Main.findMyIp();
         Main.username.set("User1");
@@ -38,6 +52,8 @@ public class Main {
 
         Client client = new Client();
         client.start();
+
+
     }
 
 
