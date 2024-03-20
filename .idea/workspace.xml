@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="LayerUserMap">
-      <change afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="UserInterface class&#10;-enterUsername">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,9 @@
       <workItem from="1709038167386" duration="7252000" />
       <workItem from="1709121928650" duration="10634000" />
       <workItem from="1710520884498" duration="6021000" />
-      <workItem from="1710585099145" duration="11013000" />
+      <workItem from="1710585099145" duration="12337000" />
+      <workItem from="1710711944966" duration="6950000" />
+      <workItem from="1710966212847" duration="3182000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -143,7 +147,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1710608584296</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="UserInterface class&#10;-enterUsername">
+      <created>1710610913405</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1710610913405</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +184,8 @@
     <MESSAGE value="Constructors in Server and Client and small fixes" />
     <MESSAGE value="Storing server socket ports in hash map" />
     <MESSAGE value="LayerUserMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="LayerUserMap" />
+    <MESSAGE value="UserInterface class&#10;-enterUsername" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserInterface class&#10;-enterUsername" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

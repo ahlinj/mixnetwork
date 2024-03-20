@@ -25,7 +25,7 @@ public class Main {
             try {
                 Thread.sleep(4000);
                 System.out.println("PortUserMap:");
-                for (Map.Entry<String, Integer> entry : PKI.PortUserMap.entrySet()) {
+                for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
                     System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
             } catch (InterruptedException e) {
@@ -34,7 +34,16 @@ public class Main {
              try {
                  Thread.sleep(4000);
                  System.out.println("LayerUserMap:");
-                 for (Map.Entry<String, Integer> entry : PKI.LayerUserMap.entrySet()) {
+                 for (Map.Entry<String, Integer> entry : PKI.layerUserMap.entrySet()) {
+                     System.out.println(entry.getKey() + ": " + entry.getValue());
+                 }
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+             try {
+                 Thread.sleep(4000);
+                 System.out.println("PublicKeyUserMap:");
+                 for (Map.Entry<String, PublicKey> entry : PKI.PKusermap.entrySet()) {
                      System.out.println(entry.getKey() + ": " + entry.getValue());
                  }
              } catch (InterruptedException e) {
@@ -44,6 +53,8 @@ public class Main {
 
 
  */
+
+
 
         //FOR USERS
 
@@ -57,6 +68,8 @@ public class Main {
         Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
 
+        String receiver = userInerface.enterReceiver();
+        String message = userInerface.enterMessage();
 
 
 
@@ -88,7 +101,7 @@ public class Main {
             ServerSocket ss = new ServerSocket(0);
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
-            PKI.addUserPort(username.get(), ss.getLocalPort());
+            PKI.portUserMap.put(username.get(),ss.getLocalPort());
             System.out.println("Server started on port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
@@ -101,7 +114,7 @@ public class Main {
             ServerSocket ss = serverSocket.get();
             if (ss != null && !ss.isClosed()) {
                 ss.close();
-                System.out.println("Server socket closed for current thread.");
+                System.out.println("Server socket closed for thread: "+ss.getLocalPort());
             }
         } catch (IOException e) {
             e.printStackTrace();

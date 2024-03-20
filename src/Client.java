@@ -13,13 +13,13 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        int entryPointPort = 61385;
+        int entryPointPort = 50835;
             try {
                 Socket socket = new Socket("localhost", entryPointPort);
                 System.out.println("Connected from port: " + socket.getLocalPort() + " to port: " + entryPointPort);
 
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                out.println(userID+":"+serverSocketPort);
+                out.println(userID+":"+serverSocketPort+":"+PKI.setPrKeyGetPubKey(userID));
             } catch (IOException e) {
                 System.err.println(e.getMessage());
             }

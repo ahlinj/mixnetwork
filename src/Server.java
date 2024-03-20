@@ -27,18 +27,28 @@ public class Server extends Thread{
 
         String clientMessageUsername;
         String clientMessagePort;
+        String clientMessagePublicKey;
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String clientMessage = in.readLine();
+
+
             clientMessageUsername = clientMessage.split(":")[0];
             clientMessagePort = clientMessage.split(":")[1];
+            clientMessagePublicKey = clientMessage.split(":")[2];
+            PKI.PKusermap.put(clientMessageUsername,PKI.stringToPublicKey(clientMessagePublicKey));
+
+
             System.out.println("Username: " + clientMessageUsername);
             System.out.println("Server port: " + clientMessagePort);
-        } catch (IOException e) {
+            System.out.println("Public key: "+clientMessagePublicKey);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        PKI.addUserPort(clientMessageUsername,Integer.parseInt(clientMessagePort));
+        PKI.portUserMap.put(clientMessageUsername,Integer.parseInt(clientMessagePort));
         PKI.addUserLayer(clientMessageUsername);
     }
+
+
 
 }
