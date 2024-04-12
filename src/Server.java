@@ -50,6 +50,10 @@ public class Server extends Thread{
                 out.println("Hello from server!");
                 outObject.writeObject(PKI.portUserMap);
                 outObject.flush();
+                outObject.writeObject(PKI.layerUserMap);
+                outObject.flush();
+                outObject.writeObject(PKI.PKusermap);
+                outObject.flush();
 
 
         } catch (Exception e) {

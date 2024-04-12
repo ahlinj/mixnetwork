@@ -21,38 +21,10 @@ public class Main {
         Server server = new Server(Main.serverSocket.get());
         server.start();
 
-         while (true){
-            try {
-                Thread.sleep(4000);
-                System.out.println("PortUserMap:");
-                for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-             try {
-                 Thread.sleep(4000);
-                 System.out.println("LayerUserMap:");
-                 for (Map.Entry<String, Integer> entry : PKI.layerUserMap.entrySet()) {
-                     System.out.println(entry.getKey() + ": " + entry.getValue());
-                 }
-             } catch (InterruptedException e) {
-                 e.printStackTrace();
-             }
-             try {
-                 Thread.sleep(4000);
-                 System.out.println("PublicKeyUserMap:");
-                 for (Map.Entry<String, PublicKey> entry : PKI.PKusermap.entrySet()) {
-                     System.out.println(entry.getKey() + ": " + entry.getValue());
-                 }
-             } catch (InterruptedException e) {
-                 e.printStackTrace();
-             }
-        }
-
 
  */
+
+
         //FOR USERS
 
         Main.findMyIp();
@@ -64,6 +36,38 @@ public class Main {
 
         Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
+
+
+
+        while (true){
+            try {
+                Thread.sleep(4000);
+                System.out.println("PortUserMap:");
+                for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
+                Thread.sleep(4000);
+                System.out.println("LayerUserMap:");
+                for (Map.Entry<String, Integer> entry : PKI.layerUserMap.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
+                Thread.sleep(4000);
+                System.out.println("PublicKeyUserMap:");
+                for (Map.Entry<String, PublicKey> entry : PKI.PKusermap.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void findMyIp(){
