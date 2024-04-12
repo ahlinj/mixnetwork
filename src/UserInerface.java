@@ -17,11 +17,13 @@ public class UserInerface {
         String answer = sc.nextLine();
         if(answer.equals("Y")){
             //sender has to be in the first layer
-            PKI.layerUserMap.put(Main.username.get(),1);
+            //needs to be fixed so that the actual PKI hash map is used and not the unused client one
+            //PKI.layerUserMap.put(Main.username.get(),1);
             System.out.println("Who do you want to send the message to?");
             String sendTo = sc.nextLine();
             //receiver has to be in the last layer
-            PKI.layerUserMap.put(sendTo,PKI.numLayers);
+            //needs to be fixed so that the actual PKI hash map is used and not the unused client one
+            //PKI.layerUserMap.put(sendTo,PKI.numLayers);
             return sendTo;
         }else {
             return enterReceiver();

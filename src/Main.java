@@ -52,9 +52,8 @@ public class Main {
         }
 
 
+
  */
-
-
 
         //FOR USERS
 
@@ -67,12 +66,6 @@ public class Main {
 
         Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
-
-        String receiver = userInerface.enterReceiver();
-        String message = userInerface.enterMessage();
-
-
-
     }
 
     public static void findMyIp(){
