@@ -16,7 +16,7 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        int entryPointPort = 52914;
+        int entryPointPort = 53102;
             try {
                 Socket socket = new Socket("localhost", entryPointPort);
                 System.out.println("Connected from port: " + socket.getLocalPort() + " to port: " + entryPointPort);
@@ -31,7 +31,8 @@ public class Client extends Thread{
                 System.out.println("Server says: " + response);
                 Map<String, Integer> receivedMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
                 System.out.println("Received hashtable from server: " + receivedMap);
-                for (Map.Entry<String, Integer> entry : receivedMap.entrySet()) {
+                PKI.portUserMap.putAll(receivedMap);
+                for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
                     String key = entry.getKey();
                     Integer value = entry.getValue();
                     System.out.println("Key: " + key + ", Value: " + value);

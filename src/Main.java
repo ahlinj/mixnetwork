@@ -52,9 +52,7 @@ public class Main {
         }
 
 
-
  */
-
         //FOR USERS
 
         Main.findMyIp();

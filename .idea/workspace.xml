@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="-enterReceiver, enterMessage&#10;-PublicKey interface improvements">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="-established connection server-&gt;client&#10;-sending ports to connecting clients">
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
       <workItem from="1710711944966" duration="6950000" />
       <workItem from="1710966212847" duration="8423000" />
       <workItem from="1712418839584" duration="1007000" />
-      <workItem from="1712914450674" duration="1480000" />
+      <workItem from="1712914450674" duration="1792000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -160,7 +156,13 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1710969788830</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="-established connection server-&gt;client&#10;-sending ports to connecting clients">
+      <created>1712916016500</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1712916016500</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +195,8 @@
     <MESSAGE value="LayerUserMap" />
     <MESSAGE value="UserInterface class&#10;-enterUsername" />
     <MESSAGE value="-enterReceiver, enterMessage&#10;-PublicKey interface improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="-enterReceiver, enterMessage&#10;-PublicKey interface improvements" />
+    <MESSAGE value="-established connection server-&gt;client&#10;-sending ports to connecting clients" />
+    <option name="LAST_COMMIT_MESSAGE" value="-established connection server-&gt;client&#10;-sending ports to connecting clients" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
