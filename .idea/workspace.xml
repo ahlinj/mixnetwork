@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="-sending all the hash maps to clients and storing them locally">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="-getting the hasmaps when connecting to the entrypoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +67,7 @@
       <workItem from="1710966212847" duration="8423000" />
       <workItem from="1712418839584" duration="1007000" />
       <workItem from="1712914450674" duration="10365000" />
-      <workItem from="1714913020733" duration="1110000" />
+      <workItem from="1714913020733" duration="2729000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -179,7 +177,13 @@
       <option name="presentableId" value="LOCAL−00018" />
       <updated>1712917533521</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL−00019" summary="-getting the hasmaps when connecting to the entrypoint">
+      <created>1714914450975</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1714914450975</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +219,8 @@
     <MESSAGE value="-established connection server-&gt;client&#10;-sending ports to connecting clients" />
     <MESSAGE value="-locally storing received port map" />
     <MESSAGE value="-sending all the hash maps to clients and storing them locally" />
-    <option name="LAST_COMMIT_MESSAGE" value="-sending all the hash maps to clients and storing them locally" />
+    <MESSAGE value="-getting the hasmaps when connecting to the entrypoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="-getting the hasmaps when connecting to the entrypoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -31,6 +31,7 @@ public class Server extends Thread {
             ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
             String clientMessage = in.readLine();
 
+            //receive peer information
             clientMessageUsername = clientMessage.split(":")[0];
             clientMessagePort = clientMessage.split(":")[1];
             clientMessagePublicKey = clientMessage.split(":")[2];
@@ -43,12 +44,11 @@ public class Server extends Thread {
             System.out.println("Server port: " + clientMessagePort);
             System.out.println("Public key: " + clientMessagePublicKey);
 
+            //send hashmaps
             outObject.writeObject(PKI.portUserMap);
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
             outObject.flush();
-
-            clientSocket.close();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
