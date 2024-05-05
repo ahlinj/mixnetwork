@@ -25,6 +25,7 @@ public class Main {
  */
 
 
+
         //FOR USERS
 
         Main.findMyIp();
@@ -36,6 +37,9 @@ public class Main {
 
         Client client = new Client(Main.username.get(),Main.port.get());
         client.start();
+
+
+
 
 
 
@@ -68,6 +72,14 @@ public class Main {
                 e.printStackTrace();
             }
         }
+
+
+
+
+
+
+
+
     }
 
     public static void findMyIp(){

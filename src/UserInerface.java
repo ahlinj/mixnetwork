@@ -12,22 +12,9 @@ public class UserInerface {
         return sc.nextLine();
     }
 
-    public String enterReceiver(){
+    public String sendMessage(){
         System.out.println("Do you want to send the message? (Y/N)");
-        String answer = sc.nextLine();
-        if(answer.equals("Y")){
-            //sender has to be in the first layer
-            //needs to be fixed so that the actual PKI hash map is used and not the unused client one
-            //PKI.layerUserMap.put(Main.username.get(),1);
-            System.out.println("Who do you want to send the message to?");
-            String sendTo = sc.nextLine();
-            //receiver has to be in the last layer
-            //needs to be fixed so that the actual PKI hash map is used and not the unused client one
-            //PKI.layerUserMap.put(sendTo,PKI.numLayers);
-            return sendTo;
-        }else {
-            return enterReceiver();
-        }
+        return sc.nextLine();
     }
 
     public String enterMessage(){
