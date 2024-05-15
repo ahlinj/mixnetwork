@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="connect to all the peers in the network">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="updated Cryptograhy class to work with Message class">
+      <change afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +44,11 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Cryptography">
+  <component name="RunManager" selected="Application.Allow multiple instances">
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mixnet" />
+      <option name="PROGRAM_PARAMETERS" value="8" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -53,6 +60,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EntryPoint" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Mixnet" />
+      <option name="PROGRAM_PARAMETERS" value="EP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Allow multiple instances" />
+      <item itemvalue="Application.EntryPoint" />
+      <item itemvalue="Application.Cryptography" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Cryptography" />
@@ -81,7 +101,9 @@
       <workItem from="1712418839584" duration="1007000" />
       <workItem from="1712914450674" duration="10365000" />
       <workItem from="1714913020733" duration="11640000" />
-      <workItem from="1715199803435" duration="660000" />
+      <workItem from="1715199803435" duration="4259000" />
+      <workItem from="1715242018177" duration="4783000" />
+      <workItem from="1715784390567" duration="1395000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -203,7 +225,13 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1714915858124</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="updated Cryptograhy class to work with Message class">
+      <created>1715200503018</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1715200503018</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +269,8 @@
     <MESSAGE value="-sending all the hash maps to clients and storing them locally" />
     <MESSAGE value="-getting the hasmaps when connecting to the entrypoint" />
     <MESSAGE value="connect to all the peers in the network" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect to all the peers in the network" />
+    <MESSAGE value="updated Cryptograhy class to work with Message class" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Cryptograhy class to work with Message class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

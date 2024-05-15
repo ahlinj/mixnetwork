@@ -22,5 +22,10 @@ public class UserInerface {
         return sc.nextLine();
     }
 
+    public String enterReceiver(){
+        System.out.println("Enter receiver: ");
+        return sc.nextLine();
+    }
+
 
 }
