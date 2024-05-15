@@ -12,74 +12,70 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         UserInerface userInerface = new UserInerface();
-        //FOR ENTRY POINT
-/*
-        Main.findMyIp();
-        Main.username.set(userInerface.enterUsername());
-        Main.initializeServerSocket();
+        if(args[0].equals("EP")){
+            Main.findMyIp();
+            Main.username.set(args[0]);
+            Main.initializeServerSocket();
 
-        Server server = new Server(Main.serverSocket.get());
-        server.start();
-
-
- */
+            Server server = new Server(Main.serverSocket.get());
+            server.start();
 
 
 
-        //FOR USERS
-
-        Main.findMyIp();
-        Main.username.set(userInerface.enterUsername());
-        Main.initializeServerSocket();
-
-        Server server = new Server(Main.serverSocket.get());
-        server.start();
-
-        Client client = new Client(Main.username.get(),Main.port.get());
-        client.start();
-
-
-
-
-
-
-        while (true){
-            try {
-                Thread.sleep(4000);
-                System.out.println("PortUserMap:");
-                for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
+            while (true){
+                try {
+                    Thread.sleep(4000);
+                    System.out.println("PortUserMap:");
+                    for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
+                        System.out.println(entry.getKey() + ": " + entry.getValue());
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-                Thread.sleep(4000);
-                System.out.println("LayerUserMap:");
-                for (Map.Entry<String, Integer> entry : PKI.layerUserMap.entrySet()) {
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                try {
+                    Thread.sleep(4000);
+                    System.out.println("LayerUserMap:");
+                    for (Map.Entry<String, Integer> entry : PKI.layerUserMap.entrySet()) {
+                        System.out.println(entry.getKey() + ": " + entry.getValue());
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-                Thread.sleep(4000);
-                System.out.println("PublicKeyUserMap:");
-                for (Map.Entry<String, PublicKey> entry : PKI.PKusermap.entrySet()) {
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                try {
+                    Thread.sleep(4000);
+                    System.out.println("PublicKeyUserMap:");
+                    for (Map.Entry<String, PublicKey> entry : PKI.PKusermap.entrySet()) {
+                        System.out.println(entry.getKey() + ": " + entry.getValue());
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+
+        }else{
+            Main.findMyIp();
+            Main.username.set(userInerface.enterUsername());
+            Main.initializeServerSocket();
+            ClientListener clientListener = new ClientListener(Main.serverSocket.get(),Main.username.get());
+            clientListener.start();
+            Client client = new Client(Main.username.get(),Main.port.get());
+            client.start();
+            /*
+            Thread.sleep(1500);
+            String yesNo = userInerface.sendMessage();
+
+            if(yesNo.equals("Y")){
+                String rec = userInerface.enterReceiver();
+                String mes = userInerface.enterMessage();
+                System.out.println(mes);
+            }else if (yesNo.equals("N")){
+                System.out.println("bla");
+            }else {
+                System.out.println("Please answer with Y or N");
+            }
+
+             */
         }
-
-
-
-
-
-
-
-
     }
 
     public static void findMyIp(){

@@ -16,16 +16,16 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        int entryPointPort = 65238;
+        int entryPointPort = 53018;
         try {
-            Socket socket = new Socket("localhost", entryPointPort);
-            System.out.println("Connected from port: " + socket.getLocalPort() + " to port: " + entryPointPort);
+            Socket socketEP = new Socket("localhost", entryPointPort);
+            System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);
 
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            ObjectInputStream inObject = new ObjectInputStream(socket.getInputStream());
+            PrintWriter out = new PrintWriter(socketEP.getOutputStream(), true);
+            ObjectInputStream inObject = new ObjectInputStream(socketEP.getInputStream());
 
             //send your information to entry point
-            out.println(userID+":"+serverSocketPort+":"+PKI.setPrKeyGetPubKey(userID));
+            out.println(userID+":"+serverSocketPort+":"+PKI.setPrKeyGetPubKey());
 
             //receive hashmaps from entry point when first connected
             Map<String, Integer> receivedPortMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
@@ -45,18 +45,11 @@ public class Client extends Thread{
                 String peerUserID = entry.getKey();
                 int peerPort = entry.getValue();
                 //dont connect to yourself and entrypoint
-                if (!peerUserID.equals(userID) && peerPort != serverSocketPort && peerPort != entryPointPort) {
-                    try {
-                        Socket peerSocket = new Socket("localhost", peerPort);
-                        System.out.println("Connected to peer " + peerUserID + " on port " + peerPort);
-
-
-
-
-                    } catch (IOException e) {
-                        System.err.println("Failed to connect to peer " + peerUserID + " on port " + peerPort);
-                        e.printStackTrace();
-                    }
+                if (peerPort != serverSocketPort && peerPort != entryPointPort) {
+                    System.out.println("Connecting to: "+peerPort);
+                    Socket socket = new Socket("localhost",peerPort);
+                    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    System.out.println("Connected to: "+in.readLine());
                 }
             }
 

@@ -14,6 +14,7 @@ public class Server extends Thread {
             try {
                 System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
+
                 handleConnection(clientSocket);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -23,15 +24,15 @@ public class Server extends Thread {
     private void handleConnection(Socket clientSocket) {
         System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
 
-        String clientMessageUsername = null;
-        String clientMessagePort = null;
+        String clientMessageUsername;
+        String clientMessagePort;
         String clientMessagePublicKey;
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
-            String clientMessage = in.readLine();
 
             //receive peer information
+            String clientMessage = in.readLine();
             clientMessageUsername = clientMessage.split(":")[0];
             clientMessagePort = clientMessage.split(":")[1];
             clientMessagePublicKey = clientMessage.split(":")[2];
@@ -49,7 +50,6 @@ public class Server extends Thread {
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
             outObject.flush();
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

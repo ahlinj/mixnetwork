@@ -28,7 +28,7 @@ public class Cryptography {
         byte[] encryptedKey = rsaCipher.doFinal(secretKey.getEncoded());
 
         Message encryptedMessage = new Message(Base64.getEncoder().encodeToString(encryptedKey) + ":" +
-                Base64.getEncoder().encodeToString(encryptedData), message.sender);
+                Base64.getEncoder().encodeToString(encryptedData), message.sender, message.header);
         encryptedMessage.timestamp = message.timestamp;
         return encryptedMessage;
     }
@@ -48,7 +48,7 @@ public class Cryptography {
         aesCipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] decryptedData = aesCipher.doFinal(encryptedData);
 
-        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender);
+        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender, encryptedMessage.header);
         decryptedMessage.timestamp = encryptedMessage.timestamp;
         return decryptedMessage;    }
 
@@ -59,9 +59,9 @@ public class Cryptography {
             PrivateKey privateKey = keyPair.getPrivate();
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter message to encrypt and decrypt: ");
+            System.out.print("Enter message: ");
             String messageBody = scanner.nextLine();
-            Message originalMessage = new Message(messageBody, publicKey);
+            Message originalMessage = new Message(messageBody, publicKey, Protocol.CONNECT);
 
             System.out.println(originalMessage.body);
 

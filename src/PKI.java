@@ -10,7 +10,7 @@ public class PKI {
     public static Map<String, Integer> portUserMap = new ConcurrentHashMap<>();
     public static Map<String, Integer> layerUserMap = new ConcurrentHashMap<>();
 
-    public static String setPrKeyGetPubKey(String username){
+    public static String setPrKeyGetPubKey(){
         try{
             KeyPair kp = Cryptography.generateRSAKey();
             Main.prKey.set(kp.getPrivate());
