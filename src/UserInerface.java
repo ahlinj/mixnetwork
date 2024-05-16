@@ -1,3 +1,4 @@
+import java.security.PublicKey;
 import java.util.Scanner;
 
 public class UserInerface {
@@ -5,6 +6,35 @@ public class UserInerface {
 
     public UserInerface() {
         this.sc = new Scanner(System.in);
+    }
+
+    public void messageExchange(){
+        String yesNo = sendMessage();
+
+        if (yesNo.equals("Y")) {
+            String rec = enterReceiver();
+            String mes = enterMessage();
+            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),Protocol.MESSAGE);
+            PublicKey recPK = null;
+            recPK = PKI.PKusermap.get(rec);
+            if(recPK != null) {
+                try {
+                    System.out.println(Cryptography.encrypt(message,recPK).body);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+            }else{
+                System.out.println("Receiver not in the network");
+                messageExchange();
+            }
+
+        } else if (yesNo.equals("N")) {
+            //Main.closeServerSocket();
+        } else {
+            System.out.println("Please answer with Y or N");
+            messageExchange();
+        }
     }
 
     public String enterUsername(){

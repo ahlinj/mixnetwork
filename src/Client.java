@@ -16,7 +16,11 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        int entryPointPort = 53018;
+        handleConnection();
+    }
+
+    private void handleConnection() {
+        int entryPointPort = 60232;
         try {
             Socket socketEP = new Socket("localhost", entryPointPort);
             System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);
