@@ -1,17 +1,18 @@
+import java.io.Serializable;
 import java.security.PublicKey;
 
-public class Message {
+public class Message implements Serializable {
     long timestamp;
     PublicKey sender;
+    int portReceiver;
     String body;
-    Protocol header;
 
 
 
-    public Message(String body, PublicKey pk, Protocol header) {
-        this.header = header;
+    public Message(String body, PublicKey pk, int portReceiver) {
         this.body = body;
         this.sender = pk;
+        this.portReceiver = portReceiver;
         this.timestamp = System.currentTimeMillis();
     }
 }

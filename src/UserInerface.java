@@ -8,22 +8,21 @@ public class UserInerface {
         this.sc = new Scanner(System.in);
     }
 
-    public void messageExchange(){
+    public Message messageExchange(){
         String yesNo = sendMessage();
 
         if (yesNo.equals("Y")) {
             String rec = enterReceiver();
             String mes = enterMessage();
-            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),Protocol.MESSAGE);
-            PublicKey recPK = null;
+            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),PKI.portUserMap.get(rec));
+            PublicKey recPK;
             recPK = PKI.PKusermap.get(rec);
             if(recPK != null) {
                 try {
-                    System.out.println(Cryptography.encrypt(message,recPK).body);
+                    return Cryptography.encrypt(message,recPK);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-
             }else{
                 System.out.println("Receiver not in the network");
                 messageExchange();
@@ -35,6 +34,7 @@ public class UserInerface {
             System.out.println("Please answer with Y or N");
             messageExchange();
         }
+        return null;
     }
 
     public String enterUsername(){

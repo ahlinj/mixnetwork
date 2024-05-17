@@ -62,7 +62,8 @@ public class Main {
 
 
             Thread.sleep(1500);
-            userInerface.messageExchange();
+            Message mes = userInerface.messageExchange();
+            client.sendMessage(mes);
 
         }
     }

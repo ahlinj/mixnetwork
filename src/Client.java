@@ -6,8 +6,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Client extends Thread{
 
+    int entryPointPort = 55234;
+
     private final String userID;
     private final int serverSocketPort;
+
 
     public Client(String username, int serverSocketPort) {
         this.userID = username;
@@ -20,7 +23,6 @@ public class Client extends Thread{
     }
 
     private void handleConnection() {
-        int entryPointPort = 60232;
         try {
             Socket socketEP = new Socket("localhost", entryPointPort);
             System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);
@@ -44,20 +46,24 @@ public class Client extends Thread{
             System.out.println("Received hashmap from server: " + receivedPKMap);
             PKI.PKusermap.putAll(receivedPKMap);
 
-            //connect to peers
-            for (Map.Entry<String, Integer> entry : PKI.portUserMap.entrySet()) {
-                String peerUserID = entry.getKey();
-                int peerPort = entry.getValue();
-                //dont connect to yourself and entrypoint
-                if (peerPort != serverSocketPort && peerPort != entryPointPort) {
-                    System.out.println("Connecting to: "+peerPort);
-                    Socket socket = new Socket("localhost",peerPort);
-                    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    System.out.println("Connected to: "+in.readLine());
-                }
-            }
-
         } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void sendMessage(Message message){
+        try {
+            int peerPort = message.portReceiver;
+            if(peerPort != serverSocketPort && peerPort != entryPointPort){
+                Socket socket = new Socket("localhost", peerPort);
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                out.writeObject(message);
+                out.flush();
+                socket.close();
+                System.out.println("Message sent to port " + peerPort);
+            }else{
+                System.out.println("Peer not found.");
+            }
+        }catch(IOException e){
             System.err.println(e.getMessage());
         }
     }

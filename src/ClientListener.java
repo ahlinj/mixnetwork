@@ -17,7 +17,6 @@ public class ClientListener extends Thread{
             try {
                 System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
-
                 handleConnection(clientSocket);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -27,9 +26,15 @@ public class ClientListener extends Thread{
 
     private void handleConnection(Socket clientSocket) throws IOException {
         System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        System.out.println(name);
-        out.println(name);
-
+        ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
+        try {
+            Message message = null;
+            while(message == null){
+                message = (Message) in.readObject();
+                System.out.println("Received message: " + message.body);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

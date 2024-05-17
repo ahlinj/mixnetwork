@@ -28,7 +28,7 @@ public class Cryptography {
         byte[] encryptedKey = rsaCipher.doFinal(secretKey.getEncoded());
 
         Message encryptedMessage = new Message(Base64.getEncoder().encodeToString(encryptedKey) + ":" +
-                Base64.getEncoder().encodeToString(encryptedData), message.sender, message.header);
+                Base64.getEncoder().encodeToString(encryptedData), message.sender, message.portReceiver);
         encryptedMessage.timestamp = message.timestamp;
         return encryptedMessage;
     }
@@ -48,40 +48,7 @@ public class Cryptography {
         aesCipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] decryptedData = aesCipher.doFinal(encryptedData);
 
-        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender, encryptedMessage.header);
+        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender, encryptedMessage.portReceiver);
         decryptedMessage.timestamp = encryptedMessage.timestamp;
         return decryptedMessage;    }
-
-    public static void main(String[] args) {
-        try {
-            KeyPair keyPair = Cryptography.generateRSAKey();
-            PublicKey publicKey = keyPair.getPublic();
-            PrivateKey privateKey = keyPair.getPrivate();
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter message: ");
-            String messageBody = scanner.nextLine();
-            Message originalMessage = new Message(messageBody, publicKey, Protocol.CONNECT);
-
-            System.out.println(originalMessage.body);
-
-            Message encryptedOnce = Cryptography.encrypt(originalMessage, publicKey);
-            System.out.println(encryptedOnce.body);
-
-            Message encryptedTwice = Cryptography.encrypt(encryptedOnce, publicKey);
-            System.out.println(encryptedTwice.body);
-
-            Message decryptedTwice = Cryptography.decrypt(encryptedTwice, privateKey);
-            System.out.println(decryptedTwice.body);
-
-            Message decryptedOnce = Cryptography.decrypt(decryptedTwice, privateKey);
-            System.out.println(decryptedOnce.body);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
 }

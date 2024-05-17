@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes">
-      <change afterPath="$PROJECT_DIR$/src/Protocol.java" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +103,7 @@
       <workItem from="1715242018177" duration="4783000" />
       <workItem from="1715784390567" duration="4037000" />
       <workItem from="1715789777606" duration="2397000" />
-      <workItem from="1715875726155" duration="3931000" />
+      <workItem from="1715875726155" duration="10977000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -241,7 +243,13 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1715790414554</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class">
+      <created>1715881564991</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1715881564991</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +290,8 @@
     <MESSAGE value="updated Cryptograhy class to work with Message class" />
     <MESSAGE value="added enterReceiver function" />
     <MESSAGE value="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes" />
+    <MESSAGE value="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class" />
+    <option name="LAST_COMMIT_MESSAGE" value="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
