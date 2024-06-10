@@ -6,15 +6,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Client extends Thread{
 
-    int entryPointPort = 55234;
+    int entryPointPort = 49192;
 
     private final String userID;
     private final int serverSocketPort;
+    private final PublicKey publicKey;
 
 
-    public Client(String username, int serverSocketPort) {
+    public Client(String username, int serverSocketPort, PublicKey publicKey) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
+        this.publicKey = publicKey;
     }
 
     @Override
@@ -31,7 +33,7 @@ public class Client extends Thread{
             ObjectInputStream inObject = new ObjectInputStream(socketEP.getInputStream());
 
             //send your information to entry point
-            out.println(userID+":"+serverSocketPort+":"+PKI.setPrKeyGetPubKey());
+            out.println(userID+":"+serverSocketPort+":"+PKI.publicKeyToString(publicKey));
 
             //receive hashmaps from entry point when first connected
             Map<String, Integer> receivedPortMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();

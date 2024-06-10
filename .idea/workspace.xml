@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,8 @@
       <workItem from="1715242018177" duration="4783000" />
       <workItem from="1715784390567" duration="4037000" />
       <workItem from="1715789777606" duration="2397000" />
-      <workItem from="1715875726155" duration="10977000" />
+      <workItem from="1715875726155" duration="11739000" />
+      <workItem from="1718029701916" duration="5487000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -249,7 +246,13 @@
       <option name="presentableId" value="LOCAL−00024" />
       <updated>1715881564991</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL−00025" summary="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages">
+      <created>1715982378555</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1715982378555</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +294,8 @@
     <MESSAGE value="added enterReceiver function" />
     <MESSAGE value="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes" />
     <MESSAGE value="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class" />
-    <option name="LAST_COMMIT_MESSAGE" value="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class" />
+    <MESSAGE value="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

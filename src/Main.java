@@ -9,6 +9,7 @@ public class Main {
     public static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
     public static final ThreadLocal<Integer> port = new ThreadLocal<>();
     public static final ThreadLocal<PrivateKey> prKey = new ThreadLocal<>();
+    public static final ThreadLocal<PublicKey> pbKey = new ThreadLocal<>();
 
     public static void main(String[] args) throws Exception {
         UserInerface userInerface = new UserInerface();
@@ -55,9 +56,11 @@ public class Main {
             Main.findMyIp();
             Main.username.set(userInerface.enterUsername());
             Main.initializeServerSocket();
-            ClientListener clientListener = new ClientListener(Main.serverSocket.get(), Main.username.get());
+            pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
+
+            ClientListener clientListener = new ClientListener(Main.serverSocket.get(), Main.username.get(),Main.prKey.get());
             clientListener.start();
-            Client client = new Client(Main.username.get(), Main.port.get());
+            Client client = new Client(Main.username.get(), Main.port.get(), Main.pbKey.get());
             client.start();
 
 
