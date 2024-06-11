@@ -31,7 +31,6 @@ public class Cryptography {
         Message encryptedMessage = new Message(
                 Base64.getEncoder().encodeToString(encryptedKey) + "::" + Base64.getEncoder().encodeToString(encryptedData),
                 message.sender,
-                message.portReceiver,
                 Base64.getEncoder().encodeToString(encryptedRoute));
         encryptedMessage.timestamp = message.timestamp;
         return encryptedMessage;
@@ -41,7 +40,6 @@ public class Cryptography {
         return new Message(
                 message.body,
                 message.sender,
-                message.portReceiver,
                 addRoute+"::"+message.route
         );
     }
@@ -53,7 +51,6 @@ public class Cryptography {
         return new Message(
                 message.body,
                 message.sender,
-                message.portReceiver,
                 save
         );
     }
@@ -75,7 +72,7 @@ public class Cryptography {
         byte[] decryptedData = aesCipher.doFinal(encryptedData);
         byte[] decryptedRoute = aesCipher.doFinal(encryptedRoute);
 
-        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender, encryptedMessage.portReceiver,new String(decryptedRoute));
+        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender,new String(decryptedRoute));
         decryptedMessage.timestamp = encryptedMessage.timestamp;
         return decryptedMessage;
     }
@@ -89,7 +86,7 @@ public class Cryptography {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter message to encrypt and decrypt: ");
             String messageBody = scanner.nextLine();
-            Message originalMessage = new Message(messageBody, publicKey,0,"-1");
+            Message originalMessage = new Message(messageBody, publicKey,"-1");
 
             System.out.println(originalMessage.body);
             System.out.println(originalMessage.route);

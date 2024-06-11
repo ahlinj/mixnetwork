@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Client extends Thread{
 
-    int entryPointPort = 49192;
+    int entryPointPort = 65518;
 
     private final String userID;
     private final int serverSocketPort;
@@ -29,13 +29,16 @@ public class Client extends Thread{
             Socket socketEP = new Socket("localhost", entryPointPort);
             System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);
 
-            PrintWriter out = new PrintWriter(socketEP.getOutputStream(), true);
-            ObjectInputStream inObject = new ObjectInputStream(socketEP.getInputStream());
-
+            ObjectOutputStream outObject = new ObjectOutputStream(socketEP.getOutputStream());
+            Protocol protocol = Protocol.CONNECT;
+            outObject.writeObject(protocol);
+            outObject.flush();
             //send your information to entry point
-            out.println(userID+":"+serverSocketPort+":"+PKI.publicKeyToString(publicKey));
+            outObject.writeUTF(userID+":"+serverSocketPort+":"+PKI.publicKeyToString(publicKey));
+            outObject.flush();
 
             //receive hashmaps from entry point when first connected
+            ObjectInputStream inObject = new ObjectInputStream(socketEP.getInputStream());
             Map<String, Integer> receivedPortMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
             System.out.println("Received hashmap from server: " + receivedPortMap);
             PKI.portUserMap.putAll(receivedPortMap);
@@ -52,19 +55,16 @@ public class Client extends Thread{
             System.err.println(e.getMessage());
         }
     }
-    public void sendMessage(Message message){
+    public void sendMessage(Message message, int sendTo){
         try {
-            int peerPort = message.portReceiver;
-            if(peerPort != serverSocketPort && peerPort != entryPointPort){
-                Socket socket = new Socket("localhost", peerPort);
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                out.writeObject(message);
-                out.flush();
-                socket.close();
-                System.out.println("Message sent to port " + peerPort);
-            }else{
-                System.out.println("Peer not found.");
-            }
+            Socket socket = new Socket("localhost", sendTo);
+            ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
+            outObject.writeObject(Protocol.MESSAGE);
+            outObject.flush();
+            outObject.writeObject(message);
+            outObject.flush();
+            socket.close();
+            System.out.println("Message sent to port " + sendTo);
         }catch(IOException e){
             System.err.println(e.getMessage());
         }

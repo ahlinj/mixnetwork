@@ -66,7 +66,7 @@ public class Main {
 
             Thread.sleep(1500);
             Message mes = userInerface.messageExchange();
-            client.sendMessage(mes);
+            client.sendMessage(mes,PKI.portUserMap.get("EP"));
 
         }
     }

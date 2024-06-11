@@ -34,8 +34,8 @@ public class ClientListener extends Thread{
             Message message = null;
             while(message == null){
                 message = (Message) in.readObject();
-                System.out.println("Received message: " + message.body);
-                System.out.println("Encrypted received message: " + Cryptography.decrypt(message,privateKey).body);
+                System.out.println("Received message: " + message.body+" --- Route: "+message.route);
+                //System.out.println("Encrypted received message: " + Cryptography.decrypt(message,privateKey).body);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
