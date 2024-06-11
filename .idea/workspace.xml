@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="implemented Serverhandler and Protocol class">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="adding destination route info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +41,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.EntryPoint">
+  <component name="RunManager">
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mixnet" />
@@ -99,7 +103,7 @@
       <workItem from="1715784390567" duration="4037000" />
       <workItem from="1715789777606" duration="2397000" />
       <workItem from="1715875726155" duration="11739000" />
-      <workItem from="1718029701916" duration="25464000" />
+      <workItem from="1718029701916" duration="27280000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -269,7 +273,13 @@
       <option name="presentableId" value="LOCAL−00028" />
       <updated>1718145143670</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL−00029" summary="adding destination route info">
+      <created>1718146066516</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1718146066516</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +297,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IP, port, serverSocket" />
     <MESSAGE value="PKI - addUser" />
     <MESSAGE value="added ThreadLocals" />
     <MESSAGE value="ConccurentHashMap and removeUser in PKI" />
@@ -312,7 +321,8 @@
     <MESSAGE value="encrypting received message&#10;changing the way Pr and Pb keys get assigned" />
     <MESSAGE value="added route in Message class&#10;updated Cryptography to encrypt/decrypt route" />
     <MESSAGE value="implemented Serverhandler and Protocol class" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented Serverhandler and Protocol class" />
+    <MESSAGE value="adding destination route info" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding destination route info" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

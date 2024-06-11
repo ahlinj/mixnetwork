@@ -21,6 +21,16 @@ public class PKI {
         return null;
     }
 
+    public static <X,Y> Map.Entry<X, Y> getRandomEntryFromMap(ConcurrentHashMap<X,Y> hashmap) {
+        if (hashmap.isEmpty()) {
+            return null;
+        } else {
+            Random rand = new Random();
+            Object[] values = hashmap.entrySet().toArray();
+            return (Map.Entry<X, Y>) values[rand.nextInt(values.length)];
+        }
+    }
+
     public static String publicKeyToString(PublicKey publicKey) {
         byte[] publicKeyBytes = publicKey.getEncoded();
         return Base64.getEncoder().encodeToString(publicKeyBytes);
