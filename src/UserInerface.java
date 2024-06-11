@@ -14,12 +14,15 @@ public class UserInerface {
         if (yesNo.equals("Y")) {
             String rec = enterReceiver();
             String mes = enterMessage();
-            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),PKI.portUserMap.get(rec));
-            PublicKey recPK;
-            recPK = PKI.PKusermap.get(rec);
+            PublicKey recPK = PKI.PKusermap.get(rec);
+            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),"-1");
+
             if(recPK != null) {
                 try {
-                    return Cryptography.encrypt(message,recPK);
+                    message = Cryptography.encrypt(message,recPK);
+                    message = Cryptography.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
+                    return message;
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
