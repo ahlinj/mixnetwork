@@ -36,24 +36,6 @@ public class Cryptography {
         return encryptedMessage;
     }
 
-    public static Message addRouteInfo(Message message, String addRoute){
-        return new Message(
-                message.body,
-                message.sender,
-                addRoute+"::"+message.route
-        );
-    }
-    public static Message deleteRouteInfo(Message message){
-        String[] parts = message.route.split("::");
-        String save = parts[1];
-
-
-        return new Message(
-                message.body,
-                message.sender,
-                save
-        );
-    }
 
 
     public static Message decrypt(Message encryptedMessage, PrivateKey privateKey) throws Exception {
@@ -75,65 +57,5 @@ public class Cryptography {
         Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender,new String(decryptedRoute));
         decryptedMessage.timestamp = encryptedMessage.timestamp;
         return decryptedMessage;
-    }
-
-    public static void main(String[] args) {
-        try {
-            KeyPair keyPair = Cryptography.generateRSAKey();
-            PublicKey publicKey = keyPair.getPublic();
-            PrivateKey privateKey = keyPair.getPrivate();
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter message to encrypt and decrypt: ");
-            String messageBody = scanner.nextLine();
-            Message originalMessage = new Message(messageBody, publicKey,"-1");
-
-            System.out.println(originalMessage.body);
-            System.out.println(originalMessage.route);
-
-            originalMessage = addRouteInfo(originalMessage,"65432");
-
-            System.out.println(originalMessage.body);
-            System.out.println(originalMessage.route);
-
-            Message encryptedOnce = Cryptography.encrypt(originalMessage, publicKey);
-            System.out.println(encryptedOnce.body);
-            System.out.println(encryptedOnce.route);
-
-            encryptedOnce = addRouteInfo(encryptedOnce,"56234");
-
-            System.out.println(encryptedOnce.body);
-            System.out.println(encryptedOnce.route);
-
-            Message encryptedTwice = Cryptography.encrypt(encryptedOnce, publicKey);
-            System.out.println(encryptedTwice.body);
-            System.out.println(encryptedTwice.route);
-
-            encryptedTwice = addRouteInfo(encryptedTwice,"65789");
-
-            System.out.println(encryptedTwice.body);
-            System.out.println(encryptedTwice.route);
-
-            encryptedTwice = deleteRouteInfo(encryptedTwice);
-
-            System.out.println(encryptedTwice.body);
-            System.out.println(encryptedTwice.route);
-
-            Message decryptedTwice = Cryptography.decrypt(encryptedTwice, privateKey);
-            System.out.println(decryptedTwice.body);
-            System.out.println(decryptedTwice.route);
-
-            decryptedTwice = deleteRouteInfo(decryptedTwice);
-
-            System.out.println(decryptedTwice.body);
-            System.out.println(decryptedTwice.route);
-
-            Message decryptedOnce = Cryptography.decrypt(decryptedTwice, privateKey);
-            System.out.println(decryptedOnce.body);
-            System.out.println(decryptedOnce.route);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

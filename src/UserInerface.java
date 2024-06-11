@@ -20,7 +20,7 @@ public class UserInerface {
             if(recPK != null) {
                 try {
                     message = Cryptography.encrypt(message,recPK);
-                    message = Cryptography.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
+                    message = Message.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
                     return message;
 
                 } catch (Exception e) {
