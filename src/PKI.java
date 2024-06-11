@@ -21,7 +21,7 @@ public class PKI {
         return null;
     }
 
-    public static <X,Y> Map.Entry<X, Y> getRandomEntryFromMap(ConcurrentHashMap<X,Y> hashmap) {
+    public static <X,Y> Map.Entry<X, Y> getRandomEntryFromMap(Map<X,Y> hashmap) {
         if (hashmap.isEmpty()) {
             return null;
         } else {

@@ -1,5 +1,7 @@
 import java.io.*;
 import java.net.Socket;
+import java.security.PublicKey;
+import java.util.Map;
 
 public class ServerHandler extends Thread{
     private Socket clientSocket;
@@ -58,9 +60,17 @@ public class ServerHandler extends Thread{
     private void receiveMessages(ObjectInputStream in) {
         try {
             Message message = (Message) in.readObject();
-            System.out.println("Received message: " + message.body+" --- Route: "+message.route);
-            //System.out.println("Encrypted received message: " + Cryptography.decrypt(message,privateKey).body);
-        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Received message: " + message.body);
+            System.out.println("Route: "+message.route);
+
+            String k1 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+            message = Cryptography.encrypt(message,PKI.PKusermap.get(k1));
+            message = Message.addRouteInfo(message,PKI.portUserMap.get(k1).toString());
+
+            String k2 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+            message = Cryptography.encrypt(message,PKI.PKusermap.get(k2));
+            message = Message.addRouteInfo(message,PKI.portUserMap.get(k2).toString());
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
