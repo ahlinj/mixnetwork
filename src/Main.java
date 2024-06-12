@@ -64,9 +64,6 @@ public class Main {
             clientListener.start();
             Client client = new Client(Main.username.get(), Main.port.get(), Main.pbKey.get());
             client.start();
-
-
-            Thread.sleep(1500);
             userInterface.messageExchange(client);
 
         }
@@ -99,7 +96,7 @@ public class Main {
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
             PKI.portUserMap.put(username.get(),ss.getLocalPort());
-            //System.out.println("Server started on port: " + ss.getLocalPort());
+            System.out.println("Server started on port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
         }

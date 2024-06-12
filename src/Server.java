@@ -12,7 +12,7 @@ public class Server extends Thread {
     public void run() {
         while (true) {
             try {
-                System.out.println("Listening on: " + serverSocket.getLocalPort());
+                //System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
                 new ServerHandler(clientSocket).start();
             } catch (IOException e) {

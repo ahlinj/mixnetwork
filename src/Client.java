@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Client extends Thread{
 
-    int entryPointPort = 59043;
+    int entryPointPort = 59606;
 
     private final String userID;
     private final int serverSocketPort;
@@ -93,8 +93,13 @@ public class Client extends Thread{
             PKI.PKusermap.putAll(receivedPKMap);
 
             System.out.println("--------------------------------");
-            System.out.println("Users in the network: "+PKI.portUserMap.keySet());
-            System.out.println("--------------------------------");
+            System.out.println("Users in the network:");
+            for (String key : PKI.portUserMap.keySet()) {
+                if (!key.equals("EP")) {
+                    System.out.print(key+", ");
+                }
+            }
+            System.out.println("\n--------------------------------");
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

@@ -53,7 +53,7 @@ public class PKI {
         SecureRandom sr = new SecureRandom();
         int layer = sr.nextInt(numLayers)+1;
         layerUserMap.put(username,layer);
-        System.out.println("Layer number: "+layer+" has been assigned to: "+username);
+        //System.out.println("Layer number: "+layer+" has been assigned to: "+username);
     }
 
     //FOR LATER

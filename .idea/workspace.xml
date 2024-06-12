@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Added &quot;Show users in network&quot; option - UPDATE protocol&#10;Updates hashmaps and displays users&#10;Commenting unnecessary lines">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Interface changes and renaming&#10;converted unix timestamp to readable format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +105,7 @@
       <workItem from="1715789777606" duration="2397000" />
       <workItem from="1715875726155" duration="11739000" />
       <workItem from="1718029701916" duration="28030000" />
-      <workItem from="1718188453866" duration="9220000" />
+      <workItem from="1718188453866" duration="11261000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -307,7 +305,13 @@
       <option name="presentableId" value="LOCAL−00033" />
       <updated>1718223366244</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL−00034" summary="Interface changes and renaming&#10;converted unix timestamp to readable format">
+      <created>1718226115409</created>
+      <option name="number" value="LOCAL−00034" />
+      <option name="presentableId" value="LOCAL−00034" />
+      <updated>1718226115409</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User-port hashmap" />
     <MESSAGE value="Entry Point simple connection&#10;-Server,Client classes" />
     <MESSAGE value="Adding usernames,ports to hashmap at signin" />
     <MESSAGE value="Constructors in Server and Client and small fixes" />
@@ -350,7 +353,8 @@
     <MESSAGE value="getRandomEntryFromMap function in PKI class" />
     <MESSAGE value="EP destributing encrypted message&#10;peers message handling logic (decryption and forwarding)&#10;changing the confusion in Message class - sender/receiver PK" />
     <MESSAGE value="Added &quot;Show users in network&quot; option - UPDATE protocol&#10;Updates hashmaps and displays users&#10;Commenting unnecessary lines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;Show users in network&quot; option - UPDATE protocol&#10;Updates hashmaps and displays users&#10;Commenting unnecessary lines" />
+    <MESSAGE value="Interface changes and renaming&#10;converted unix timestamp to readable format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interface changes and renaming&#10;converted unix timestamp to readable format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

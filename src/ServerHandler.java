@@ -24,7 +24,7 @@ public class ServerHandler extends Thread{
         }
     }
     private void handleConnection(ObjectInputStream in) {
-        System.out.println("Connected to port: " + clientSocket.getPort());
+        //System.out.println("Connected to port: " + clientSocket.getPort());
 
         String clientMessageUsername;
         String clientMessagePort;
@@ -42,9 +42,9 @@ public class ServerHandler extends Thread{
             PKI.portUserMap.put(clientMessageUsername, Integer.parseInt(clientMessagePort));
             PKI.addUserLayer(clientMessageUsername);
 
-            System.out.println("Username: " + clientMessageUsername);
-            System.out.println("Server port: " + clientMessagePort);
-            System.out.println("Public key: " + clientMessagePublicKey);
+            //System.out.println("Username: " + clientMessageUsername);
+            //System.out.println("Server port: " + clientMessagePort);
+            //System.out.println("Public key: " + clientMessagePublicKey);
 
             //send hashmaps
             ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -59,16 +59,16 @@ public class ServerHandler extends Thread{
     private void receiveMessages(ObjectInputStream in) {
         try {
             Message message = (Message) in.readObject();
-            System.out.println("Received message: " + message.body);
-            System.out.println("Route: "+message.route);
+            //System.out.println("Received message: " + message.body);
+            //System.out.println("Route: "+message.route);
 
             String k1 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-            System.out.println("Second encryption user: "+k1);
+            //System.out.println("Second encryption user: "+k1);
             message = Cryptography.encrypt(message,PKI.PKusermap.get(k1));
             message = Message.addRouteInfo(message,PKI.portUserMap.get(k1).toString());
 
             String k2 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-            System.out.println("Third encryption user: "+k2);
+            //System.out.println("Third encryption user: "+k2);
             message = Cryptography.encrypt(message,PKI.PKusermap.get(k2));
             message = Message.addRouteInfo(message,PKI.portUserMap.get(k2).toString());
             Socket socket = new Socket("localhost", PKI.portUserMap.get(k2));
