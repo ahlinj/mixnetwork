@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="not showing EP in the user network list&#10;cleaning EP console">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="REMOVE protocol (leaving the network)&#10;closed all the sockets at the end of functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +40,7 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Allow multiple instances">
+  <component name="RunManager" selected="Application.EntryPoint">
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mixnet" />
@@ -106,7 +103,7 @@
       <workItem from="1715789777606" duration="2397000" />
       <workItem from="1715875726155" duration="11739000" />
       <workItem from="1718029701916" duration="28030000" />
-      <workItem from="1718188453866" duration="13172000" />
+      <workItem from="1718188453866" duration="14812000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -318,7 +315,13 @@
       <option name="presentableId" value="LOCAL−00035" />
       <updated>1718228292285</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL−00036" summary="REMOVE protocol (leaving the network)&#10;closed all the sockets at the end of functions">
+      <created>1718230165318</created>
+      <option name="number" value="LOCAL−00036" />
+      <option name="presentableId" value="LOCAL−00036" />
+      <updated>1718230165318</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +339,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding usernames,ports to hashmap at signin" />
     <MESSAGE value="Constructors in Server and Client and small fixes" />
     <MESSAGE value="Storing server socket ports in hash map" />
     <MESSAGE value="LayerUserMap" />
@@ -361,7 +363,8 @@
     <MESSAGE value="Added &quot;Show users in network&quot; option - UPDATE protocol&#10;Updates hashmaps and displays users&#10;Commenting unnecessary lines" />
     <MESSAGE value="Interface changes and renaming&#10;converted unix timestamp to readable format" />
     <MESSAGE value="not showing EP in the user network list&#10;cleaning EP console" />
-    <option name="LAST_COMMIT_MESSAGE" value="not showing EP in the user network list&#10;cleaning EP console" />
+    <MESSAGE value="REMOVE protocol (leaving the network)&#10;closed all the sockets at the end of functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="REMOVE protocol (leaving the network)&#10;closed all the sockets at the end of functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

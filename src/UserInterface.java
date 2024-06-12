@@ -13,7 +13,7 @@ public class UserInterface {
 
         if (option.equals("1")) {
             client.updateUsermaps();
-            String rec = enterReceiver();
+            String rec = enterReceiver(client);
             String mes = enterMessage();
             PublicKey recPK = PKI.PKusermap.get(rec);
             Message message = new Message(mes,Main.username.get(),"-1");
@@ -62,8 +62,14 @@ public class UserInterface {
         return sc.nextLine();
     }
 
-    public String enterReceiver() {
+    public String enterReceiver(Client client) {
         System.out.println("Enter receiver: ");
-        return sc.nextLine();
+        String answer = sc.nextLine();
+        if(PKI.portUserMap.containsKey(answer) && !answer.equals("EP")){
+            return answer;
+        }
+        System.out.println("You can only choose one of the currently connected users.");
+        messageExchange(client);
+        return null;
     }
 }

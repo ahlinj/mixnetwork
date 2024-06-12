@@ -58,6 +58,10 @@ public class ClientListener extends Thread{
                     System.out.println("Sender: "+message.sender);
                     System.out.println("Timestamp: "+LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestamp), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     System.out.println("--------------------------------");
+                    System.out.println("What do you want to do?");
+                    System.out.println("1: Send message");
+                    System.out.println("2: Show users in the network");
+                    System.out.println("3: Leave the network and close the program");
                 }
             }
         } catch (Exception e) {
