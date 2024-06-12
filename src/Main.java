@@ -12,7 +12,7 @@ public class Main {
     public static final ThreadLocal<PublicKey> pbKey = new ThreadLocal<>();
 
     public static void main(String[] args) throws Exception {
-        UserInerface userInerface = new UserInerface();
+        UserInterface userInterface = new UserInterface();
         if (args[0].equals("EP")) {
             Main.findMyIp();
             Main.username.set(args[0]);
@@ -56,7 +56,7 @@ public class Main {
 
         } else {
             Main.findMyIp();
-            Main.username.set(userInerface.enterUsername());
+            Main.username.set(userInterface.enterUsername());
             Main.initializeServerSocket();
             pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
 
@@ -67,7 +67,7 @@ public class Main {
 
 
             Thread.sleep(1500);
-            userInerface.messageExchange(client);
+            userInterface.messageExchange(client);
 
         }
     }

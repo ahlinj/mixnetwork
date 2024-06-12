@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Client extends Thread{
 
-    int entryPointPort = 58428;
+    int entryPointPort = 59043;
 
     private final String userID;
     private final int serverSocketPort;
@@ -21,10 +21,10 @@ public class Client extends Thread{
 
     @Override
     public void run(){
-        handleConnection();
+        initialConnection();
     }
 
-    private void handleConnection() {
+    private void initialConnection() {
         try {
             Socket socketEP = new Socket("localhost", entryPointPort);
             //System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);

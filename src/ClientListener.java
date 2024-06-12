@@ -1,6 +1,8 @@
 import java.io.*;
 import java.net.*;
 import java.security.PrivateKey;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class ClientListener extends Thread{
 
@@ -20,14 +22,14 @@ public class ClientListener extends Thread{
             try {
                 //System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
-                handleConnection(clientSocket);
+                handleMessage(clientSocket);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    private void handleConnection(Socket clientSocket) throws IOException {
+    private void handleMessage(Socket clientSocket) throws IOException {
         //System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
         ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
         try {
@@ -55,7 +57,7 @@ public class ClientListener extends Thread{
                     System.out.println("YOU HAVE RECEIVED A MESSAGE:");
                     System.out.println("Received message: "+message.body);
                     System.out.println("Sender: "+message.sender);
-                    System.out.println("Timestamp: "+message.timestamp);
+                    System.out.println("Timestamp: "+LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestamp), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     System.out.println("--------------------------------");
                 }
             }

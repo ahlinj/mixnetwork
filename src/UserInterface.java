@@ -1,10 +1,10 @@
 import java.security.PublicKey;
 import java.util.Scanner;
 
-public class UserInerface {
+public class UserInterface {
     private final Scanner sc;
 
-    public UserInerface() {
+    public UserInterface() {
         this.sc = new Scanner(System.in);
     }
 
@@ -12,6 +12,7 @@ public class UserInerface {
         String yesNo = sendMessage();
 
         if (yesNo.equals("1")) {
+            client.updateUsermaps();
             String rec = enterReceiver();
             String mes = enterMessage();
             PublicKey recPK = PKI.PKusermap.get(rec);
@@ -22,6 +23,7 @@ public class UserInerface {
                     message = Cryptography.encrypt(message,recPK);
                     message = Message.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
                     client.sendMessage(message,PKI.portUserMap.get("EP"));
+                    messageExchange(client);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -32,6 +34,7 @@ public class UserInerface {
 
         } else if (yesNo.equals("2")) {
             client.updateUsermaps();
+            messageExchange(client);
         } else {
             System.out.println("Please answer with one of possible numbers.");
             messageExchange(client);
@@ -55,10 +58,8 @@ public class UserInerface {
         return sc.nextLine();
     }
 
-    public String enterReceiver(){
+    public String enterReceiver() {
         System.out.println("Enter receiver: ");
         return sc.nextLine();
     }
-
-
 }

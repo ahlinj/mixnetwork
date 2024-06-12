@@ -81,9 +81,8 @@ public class ServerHandler extends Thread{
         }
     }
     private void updateMaps(){
-        ObjectOutputStream outObject = null;
         try {
-            outObject = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
             outObject.writeObject(PKI.portUserMap);
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
