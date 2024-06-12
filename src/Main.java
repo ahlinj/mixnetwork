@@ -60,7 +60,7 @@ public class Main {
             Main.initializeServerSocket();
             pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
 
-            ClientListener clientListener = new ClientListener(Main.serverSocket.get(), Main.username.get(),Main.prKey.get());
+            ClientListener clientListener = new ClientListener(Main.serverSocket.get(),Main.prKey.get());
             clientListener.start();
             Client client = new Client(Main.username.get(), Main.port.get(), Main.pbKey.get());
             client.start();
@@ -103,10 +103,11 @@ public class Main {
     }
 
 
-    public static void closeServerSocket() {
+    public static void closeServerSocket(Client client) {
         try {
             ServerSocket ss = serverSocket.get();
             if (ss != null && !ss.isClosed()) {
+                client.removeUser();
                 ss.close();
                 System.out.println("Server socket closed for thread: "+ss.getLocalPort());
             }

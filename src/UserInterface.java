@@ -9,9 +9,9 @@ public class UserInterface {
     }
 
     public void messageExchange(Client client){
-        String yesNo = sendMessage();
+        String option = sendMessage();
 
-        if (yesNo.equals("1")) {
+        if (option.equals("1")) {
             client.updateUsermaps();
             String rec = enterReceiver();
             String mes = enterMessage();
@@ -32,9 +32,12 @@ public class UserInterface {
                 messageExchange(client);
             }
 
-        } else if (yesNo.equals("2")) {
+        } else if (option.equals("2")) {
             client.updateUsermaps();
             messageExchange(client);
+        } else if (option.equals("3")) {
+            Main.closeServerSocket(client);
+            System.exit(0);
         } else {
             System.out.println("Please answer with one of possible numbers.");
             messageExchange(client);
@@ -50,6 +53,7 @@ public class UserInterface {
         System.out.println("What do you want to do?");
         System.out.println("1: Send message");
         System.out.println("2: Show users in the network");
+        System.out.println("3: Leave the network and close the program");
         return sc.nextLine();
     }
 

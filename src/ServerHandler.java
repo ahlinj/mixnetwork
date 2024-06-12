@@ -17,6 +17,7 @@ public class ServerHandler extends Thread{
                 case CONNECT -> handleConnection(in);
                 case MESSAGE -> receiveMessages(in);
                 case UPDATE -> updateMaps();
+                case REMOVE -> removeFromMaps(in);
                 default -> System.out.println("Unknown protocol: " + protocol);
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -25,13 +26,10 @@ public class ServerHandler extends Thread{
     }
     private void handleConnection(ObjectInputStream in) {
         //System.out.println("Connected to port: " + clientSocket.getPort());
-
         String clientMessageUsername;
         String clientMessagePort;
         String clientMessagePublicKey;
         try {
-
-
             //receive peer information
             String clientMessage = in.readUTF();
             clientMessageUsername = clientMessage.split(":")[0];
@@ -52,6 +50,7 @@ public class ServerHandler extends Thread{
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
             outObject.flush();
+            clientSocket.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -75,7 +74,8 @@ public class ServerHandler extends Thread{
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(message);
             outObject.flush();
-
+            socket.close();
+            clientSocket.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -87,10 +87,23 @@ public class ServerHandler extends Thread{
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
             outObject.flush();
+            clientSocket.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void removeFromMaps(ObjectInputStream in) {
+        try {
+            String removeUsername = in.readUTF();
+            PKI.portUserMap.remove(removeUsername);
+            PKI.PKusermap.remove(removeUsername);
+            PKI.layerUserMap.remove(removeUsername);
+            clientSocket.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
