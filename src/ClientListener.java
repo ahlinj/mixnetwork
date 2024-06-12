@@ -18,7 +18,7 @@ public class ClientListener extends Thread{
     public void run() {
         while (true) {
             try {
-                System.out.println("Listening on: " + serverSocket.getLocalPort());
+                //System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
                 handleConnection(clientSocket);
             } catch (IOException e) {
@@ -28,22 +28,22 @@ public class ClientListener extends Thread{
     }
 
     private void handleConnection(Socket clientSocket) throws IOException {
-        System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
+        //System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
         ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
         try {
             Message message = null;
             while(message == null){
                 message = (Message) in.readObject();
-                System.out.println("Received message: " + message.body);
-                System.out.println("Route: "+message.route);
+                //System.out.println("Received message: " + message.body);
+                //System.out.println("Route: "+message.route);
 
                 message = Message.deleteRouteInfo(message);
-                System.out.println("Received message: " + message.body);
-                System.out.println("Route: "+message.route);
+                //System.out.println("Received message: " + message.body);
+                //System.out.println("Route: "+message.route);
 
                 message = Cryptography.decrypt(message, privateKey);
-                System.out.println("Received message: " + message.body);
-                System.out.println("Route: "+message.route);
+                //System.out.println("Received message: " + message.body);
+                //System.out.println("Route: "+message.route);
                 if(!message.route.equals("-1")) {
                     int sendTo = Integer.parseInt(message.route.split("::")[0]);
                     Socket socket = new Socket("localhost", sendTo);
@@ -51,10 +51,12 @@ public class ClientListener extends Thread{
                     outObject.writeObject(message);
                     outObject.flush();
                 }else{
-                    System.out.println("FINAL MESSAGE:");
-                    System.out.println("Received message: " + message.body);
-                    System.out.println("Route: "+message.route);
+                    System.out.println("--------------------------------");
+                    System.out.println("YOU HAVE RECEIVED A MESSAGE:");
+                    System.out.println("Received message: "+message.body);
                     System.out.println("Sender: "+message.sender);
+                    System.out.println("Timestamp: "+message.timestamp);
+                    System.out.println("--------------------------------");
                 }
             }
         } catch (Exception e) {

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="getRandomEntryFromMap function in PKI class">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="EP destributing encrypted message&#10;peers message handling logic (decryption and forwarding)&#10;changing the confusion in Message class - sender/receiver PK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInerface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInerface.java" afterDir="false" />
     </list>
@@ -104,7 +104,7 @@
       <workItem from="1715789777606" duration="2397000" />
       <workItem from="1715875726155" duration="11739000" />
       <workItem from="1718029701916" duration="28030000" />
-      <workItem from="1718188453866" duration="3962000" />
+      <workItem from="1718188453866" duration="6198000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -286,7 +286,13 @@
       <option name="presentableId" value="LOCAL−00030" />
       <updated>1718147913657</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL−00031" summary="EP destributing encrypted message&#10;peers message handling logic (decryption and forwarding)&#10;changing the confusion in Message class - sender/receiver PK">
+      <created>1718192630423</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1718192630423</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +310,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added ThreadLocals" />
     <MESSAGE value="ConccurentHashMap and removeUser in PKI" />
     <MESSAGE value="User-port hashmap" />
     <MESSAGE value="Entry Point simple connection&#10;-Server,Client classes" />
@@ -329,7 +334,8 @@
     <MESSAGE value="implemented Serverhandler and Protocol class" />
     <MESSAGE value="adding destination route info" />
     <MESSAGE value="getRandomEntryFromMap function in PKI class" />
-    <option name="LAST_COMMIT_MESSAGE" value="getRandomEntryFromMap function in PKI class" />
+    <MESSAGE value="EP destributing encrypted message&#10;peers message handling logic (decryption and forwarding)&#10;changing the confusion in Message class - sender/receiver PK" />
+    <option name="LAST_COMMIT_MESSAGE" value="EP destributing encrypted message&#10;peers message handling logic (decryption and forwarding)&#10;changing the confusion in Message class - sender/receiver PK" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

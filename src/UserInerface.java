@@ -8,10 +8,10 @@ public class UserInerface {
         this.sc = new Scanner(System.in);
     }
 
-    public Message messageExchange(){
+    public void messageExchange(Client client){
         String yesNo = sendMessage();
 
-        if (yesNo.equals("Y")) {
+        if (yesNo.equals("1")) {
             String rec = enterReceiver();
             String mes = enterMessage();
             PublicKey recPK = PKI.PKusermap.get(rec);
@@ -21,23 +21,21 @@ public class UserInerface {
                 try {
                     message = Cryptography.encrypt(message,recPK);
                     message = Message.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
-                    return message;
-
+                    client.sendMessage(message,PKI.portUserMap.get("EP"));
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }else{
                 System.out.println("Receiver not in the network");
-                messageExchange();
+                messageExchange(client);
             }
 
-        } else if (yesNo.equals("N")) {
-            //Main.closeServerSocket();
+        } else if (yesNo.equals("2")) {
+            client.updateUsermaps();
         } else {
-            System.out.println("Please answer with Y or N");
-            messageExchange();
+            System.out.println("Please answer with one of possible numbers.");
+            messageExchange(client);
         }
-        return null;
     }
 
     public String enterUsername(){
@@ -46,7 +44,9 @@ public class UserInerface {
     }
 
     public String sendMessage(){
-        System.out.println("Do you want to send the message? (Y/N)");
+        System.out.println("What do you want to do?");
+        System.out.println("1: Send message");
+        System.out.println("2: Show users in the network");
         return sc.nextLine();
     }
 

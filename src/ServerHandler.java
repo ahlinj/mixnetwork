@@ -16,6 +16,7 @@ public class ServerHandler extends Thread{
             switch (protocol) {
                 case CONNECT -> handleConnection(in);
                 case MESSAGE -> receiveMessages(in);
+                case UPDATE -> updateMaps();
                 default -> System.out.println("Unknown protocol: " + protocol);
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -79,4 +80,18 @@ public class ServerHandler extends Thread{
             throw new RuntimeException(e);
         }
     }
+    private void updateMaps(){
+        ObjectOutputStream outObject = null;
+        try {
+            outObject = new ObjectOutputStream(clientSocket.getOutputStream());
+            outObject.writeObject(PKI.portUserMap);
+            outObject.writeObject(PKI.layerUserMap);
+            outObject.writeObject(PKI.PKusermap);
+            outObject.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }
