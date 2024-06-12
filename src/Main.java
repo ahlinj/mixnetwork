@@ -21,7 +21,7 @@ public class Main {
             Server server = new Server(Main.serverSocket.get());
             server.start();
 
-
+/*
             while (true) {
                 try {
                     Thread.sleep(4000);
@@ -52,6 +52,8 @@ public class Main {
                 }
             }
 
+ */
+
         } else {
             Main.findMyIp();
             Main.username.set(userInerface.enterUsername());
@@ -65,8 +67,7 @@ public class Main {
 
 
             Thread.sleep(1500);
-            Message mes = userInerface.messageExchange();
-            client.sendMessage(mes,PKI.portUserMap.get("EP"));
+            userInerface.messageExchange(client);
 
         }
     }
@@ -82,7 +83,7 @@ public class Main {
                         InetAddress address = (InetAddress) addr.nextElement();
                         myIp = address.getHostAddress().replace("/", "");
                         if (myIp.length() <= 15) {
-                            System.out.println("LocalIp: " + myIp);
+                            //System.out.println("LocalIp: " + myIp);
                         }
                     }
                 }
@@ -98,7 +99,7 @@ public class Main {
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
             PKI.portUserMap.put(username.get(),ss.getLocalPort());
-            System.out.println("Server started on port: " + ss.getLocalPort());
+            //System.out.println("Server started on port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
