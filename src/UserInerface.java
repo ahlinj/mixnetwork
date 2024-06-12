@@ -15,7 +15,7 @@ public class UserInerface {
             String rec = enterReceiver();
             String mes = enterMessage();
             PublicKey recPK = PKI.PKusermap.get(rec);
-            Message message = new Message(mes,PKI.PKusermap.get(Main.username.get()),"-1");
+            Message message = new Message(mes,Main.username.get(),"-1");
 
             if(recPK != null) {
                 try {

@@ -34,8 +34,28 @@ public class ClientListener extends Thread{
             Message message = null;
             while(message == null){
                 message = (Message) in.readObject();
-                System.out.println("Received message: " + message.body+" --- Route: "+message.route);
-                //System.out.println("Encrypted received message: " + Cryptography.decrypt(message,privateKey).body);
+                System.out.println("Received message: " + message.body);
+                System.out.println("Route: "+message.route);
+
+                message = Message.deleteRouteInfo(message);
+                System.out.println("Received message: " + message.body);
+                System.out.println("Route: "+message.route);
+
+                message = Cryptography.decrypt(message, privateKey);
+                System.out.println("Received message: " + message.body);
+                System.out.println("Route: "+message.route);
+                if(!message.route.equals("-1")) {
+                    int sendTo = Integer.parseInt(message.route.split("::")[0]);
+                    Socket socket = new Socket("localhost", sendTo);
+                    ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
+                    outObject.writeObject(message);
+                    outObject.flush();
+                }else{
+                    System.out.println("FINAL MESSAGE:");
+                    System.out.println("Received message: " + message.body);
+                    System.out.println("Route: "+message.route);
+                    System.out.println("Sender: "+message.sender);
+                }
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

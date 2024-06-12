@@ -3,15 +3,15 @@ import java.security.PublicKey;
 
 public class Message implements Serializable {
     long timestamp;
-    PublicKey sender;
+    String sender;
     String body;
     String route;
 
 
 
-    public Message(String body, PublicKey pk, String route) {
+    public Message(String body, String sender, String route) {
         this.body = body;
-        this.sender = pk;
+        this.sender = sender;
         this.timestamp = System.currentTimeMillis();
         this.route = route;
     }

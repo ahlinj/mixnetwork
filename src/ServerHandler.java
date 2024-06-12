@@ -1,7 +1,5 @@
 import java.io.*;
 import java.net.Socket;
-import java.security.PublicKey;
-import java.util.Map;
 
 public class ServerHandler extends Thread{
     private Socket clientSocket;
@@ -64,12 +62,19 @@ public class ServerHandler extends Thread{
             System.out.println("Route: "+message.route);
 
             String k1 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+            System.out.println("Second encryption user: "+k1);
             message = Cryptography.encrypt(message,PKI.PKusermap.get(k1));
             message = Message.addRouteInfo(message,PKI.portUserMap.get(k1).toString());
 
             String k2 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+            System.out.println("Third encryption user: "+k2);
             message = Cryptography.encrypt(message,PKI.PKusermap.get(k2));
             message = Message.addRouteInfo(message,PKI.portUserMap.get(k2).toString());
+            Socket socket = new Socket("localhost", PKI.portUserMap.get(k2));
+            ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
+            outObject.writeObject(message);
+            outObject.flush();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
