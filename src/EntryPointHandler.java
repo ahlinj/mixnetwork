@@ -3,9 +3,11 @@ import java.net.Socket;
 
 public class EntryPointHandler extends Thread{
     private Socket clientSocket;
+    private int numberOfEncryptions;
 
-    public EntryPointHandler(Socket clientSocket) {
+    public EntryPointHandler(Socket clientSocket, int numberOfEncryptions) {
         this.clientSocket = clientSocket;
+        this.numberOfEncryptions = numberOfEncryptions;
     }
 
     @Override
@@ -61,16 +63,16 @@ public class EntryPointHandler extends Thread{
             //System.out.println("Received message: " + message.body);
             //System.out.println("Route: "+message.route);
 
-            String k1 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-            //System.out.println("Second encryption user: "+k1);
-            message = Cryptography.encrypt(message,PKI.PKusermap.get(k1));
-            message = Message.addRouteInfo(message,PKI.portUserMap.get(k1).toString());
+            String lastKey = null;
+            for (int i = 0; i < numberOfEncryptions; i++) {
+                String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+                System.out.println(key);
+                message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
+                message = Message.addRouteInfo(message, PKI.portUserMap.get(key).toString());
+                lastKey = key;
+            }
 
-            String k2 = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-            //System.out.println("Third encryption user: "+k2);
-            message = Cryptography.encrypt(message,PKI.PKusermap.get(k2));
-            message = Message.addRouteInfo(message,PKI.portUserMap.get(k2).toString());
-            Socket socket = new Socket("localhost", PKI.portUserMap.get(k2));
+            Socket socket = new Socket("localhost", PKI.portUserMap.get(lastKey));
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(message);
             outObject.flush();

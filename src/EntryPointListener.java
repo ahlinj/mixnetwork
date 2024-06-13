@@ -3,9 +3,11 @@ import java.net.*;
 
 public class EntryPointListener extends Thread {
     private ServerSocket serverSocket;
+    private int numEncyptions;
 
-    public EntryPointListener(ServerSocket serverSocket) {
+    public EntryPointListener(ServerSocket serverSocket, int numEncyptions) {
         this.serverSocket = serverSocket;
+        this.numEncyptions = numEncyptions;
     }
 
     @Override
@@ -14,7 +16,7 @@ public class EntryPointListener extends Thread {
             try {
                 //System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
-                new EntryPointHandler(clientSocket).start();
+                new EntryPointHandler(clientSocket, numEncyptions).start();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
