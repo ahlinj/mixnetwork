@@ -1,33 +1,32 @@
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.security.PrivateKey;
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public class ClientListener extends Thread{
-
-    private ServerSocket serverSocket;
+public class PeerHandler extends Thread{
+    private Socket clientSocket;
     private PrivateKey privateKey;
 
-    public ClientListener(ServerSocket serverSocket, PrivateKey privateKey) {
-        this.serverSocket = serverSocket;
+    public PeerHandler(Socket clientSocket, PrivateKey privateKey) {
+        this.clientSocket = clientSocket;
         this.privateKey = privateKey;
     }
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                //System.out.println("Listening on: " + serverSocket.getLocalPort());
-                Socket clientSocket = serverSocket.accept();
-                handleMessage(clientSocket);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            handleMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private void handleMessage(Socket clientSocket) throws IOException {
+    private void handleMessage() throws IOException {
         //System.out.println("Connected from port: " + serverSocket.getLocalPort() + " to port: " + clientSocket.getPort());
         ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
         try {
@@ -56,7 +55,7 @@ public class ClientListener extends Thread{
                     System.out.println("YOU HAVE RECEIVED A MESSAGE:");
                     System.out.println("Received message: "+message.body);
                     System.out.println("Sender: "+message.sender);
-                    System.out.println("Timestamp: "+LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestamp), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                    System.out.println("Timestamp: "+ LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestamp), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     System.out.println("--------------------------------");
                     System.out.println("What do you want to do?");
                     System.out.println("1: Send message");
@@ -69,4 +68,5 @@ public class ClientListener extends Thread{
         }
         clientSocket.close();
     }
+
 }

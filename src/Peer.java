@@ -4,16 +4,16 @@ import java.security.PublicKey;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Client extends Thread{
+public class Peer extends Thread{
 
-    int entryPointPort = 60073;
+    int entryPointPort = 50967;
 
     private final String userID;
     private final int serverSocketPort;
     private final PublicKey publicKey;
 
 
-    public Client(String username, int serverSocketPort, PublicKey publicKey) {
+    public Peer(String username, int serverSocketPort, PublicKey publicKey) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
         this.publicKey = publicKey;
@@ -96,7 +96,7 @@ public class Client extends Thread{
             System.out.println("--------------------------------");
             System.out.println("Users in the network:");
             for (String key : PKI.portUserMap.keySet()) {
-                if (!key.equals("EP")) {
+                if (!key.equals("EP") && !key.equals(Main.username.get())) {
                     System.out.print(key+", ");
                 }
             }

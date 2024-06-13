@@ -42,13 +42,6 @@ public class PKI {
         return keyFactory.generatePublic(new X509EncodedKeySpec(publicKeyBytes));
     }
 
-
-    public static void removeUser(String username) {
-        PKusermap.remove(username);
-        Main.prKey.remove();
-        portUserMap.remove(username);
-    }
-
     public static void addUserLayer(String username){
         SecureRandom sr = new SecureRandom();
         int layer = sr.nextInt(numLayers)+1;

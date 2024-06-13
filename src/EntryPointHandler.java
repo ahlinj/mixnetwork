@@ -1,10 +1,10 @@
 import java.io.*;
 import java.net.Socket;
 
-public class ServerHandler extends Thread{
+public class EntryPointHandler extends Thread{
     private Socket clientSocket;
 
-    public ServerHandler(Socket clientSocket) {
+    public EntryPointHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
 
@@ -41,7 +41,7 @@ public class ServerHandler extends Thread{
             PKI.addUserLayer(clientMessageUsername);
 
             //System.out.println("Username: " + clientMessageUsername);
-            //System.out.println("Server port: " + clientMessagePort);
+            //System.out.println("EntryPointListener port: " + clientMessagePort);
             //System.out.println("Public key: " + clientMessagePublicKey);
 
             //send hashmaps

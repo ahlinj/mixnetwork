@@ -1,10 +1,10 @@
 import java.io.*;
 import java.net.*;
 
-public class Server extends Thread {
+public class EntryPointListener extends Thread {
     private ServerSocket serverSocket;
 
-    public Server(ServerSocket serverSocket) {
+    public EntryPointListener(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
 
@@ -14,7 +14,7 @@ public class Server extends Thread {
             try {
                 //System.out.println("Listening on: " + serverSocket.getLocalPort());
                 Socket clientSocket = serverSocket.accept();
-                new ServerHandler(clientSocket).start();
+                new EntryPointHandler(clientSocket).start();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

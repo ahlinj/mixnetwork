@@ -18,8 +18,8 @@ public class Main {
             Main.username.set(args[0]);
             Main.initializeServerSocket();
 
-            Server server = new Server(Main.serverSocket.get());
-            server.start();
+            EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get());
+            entryPointListener.start();
 
 /*
             while (true) {
@@ -60,11 +60,11 @@ public class Main {
             Main.initializeServerSocket();
             pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
 
-            ClientListener clientListener = new ClientListener(Main.serverSocket.get(),Main.prKey.get());
-            clientListener.start();
-            Client client = new Client(Main.username.get(), Main.port.get(), Main.pbKey.get());
-            client.start();
-            userInterface.messageExchange(client);
+            PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
+            peerListener.start();
+            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get());
+            peer.start();
+            userInterface.messageExchange(peer);
 
         }
     }
@@ -96,18 +96,18 @@ public class Main {
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
             PKI.portUserMap.put(username.get(),ss.getLocalPort());
-            System.out.println("Server started on port: " + ss.getLocalPort());
+            System.out.println("Your port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static void closeServerSocket(Client client) {
+    public static void closeServerSocket(Peer peer) {
         try {
             ServerSocket ss = serverSocket.get();
             if (ss != null && !ss.isClosed()) {
-                client.removeUser();
+                peer.removeUser();
                 ss.close();
                 System.out.println("Server socket closed for thread: "+ss.getLocalPort());
             }
