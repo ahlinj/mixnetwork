@@ -18,7 +18,7 @@ public class Main {
             Main.username.set(args[0]);
             Main.initializeServerSocket();
 
-            EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get(), 6);
+            EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get(), 5);
             entryPointListener.start();
 
 /*

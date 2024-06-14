@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="flexible number of encryptions">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="EP port is given as command line argument">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cryptography.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mixnet" />
-      <option name="PROGRAM_PARAMETERS" value="57848" />
+      <option name="PROGRAM_PARAMETERS" value="57926" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,7 +103,7 @@
       <workItem from="1715875726155" duration="11739000" />
       <workItem from="1718029701916" duration="28030000" />
       <workItem from="1718188453866" duration="15422000" />
-      <workItem from="1718285986022" duration="17440000" />
+      <workItem from="1718285986022" duration="18657000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -339,7 +339,13 @@
       <option name="presentableId" value="LOCAL−00039" />
       <updated>1718294264436</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL−00040" summary="EP port is given as command line argument">
+      <created>1718395226160</created>
+      <option name="number" value="LOCAL−00040" />
+      <option name="presentableId" value="LOCAL−00040" />
+      <updated>1718395226160</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +363,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UserInterface class&#10;-enterUsername" />
     <MESSAGE value="-enterReceiver, enterMessage&#10;-PublicKey interface improvements" />
     <MESSAGE value="-established connection server-&gt;client&#10;-sending ports to connecting clients" />
     <MESSAGE value="-locally storing received port map" />
@@ -382,7 +387,8 @@
     <MESSAGE value="Disables sending messages to yourself and EP &#10;Small interface fix" />
     <MESSAGE value="Introducing PeerHandler class&#10;Renaming classes for better representation&#10;Cannot message yourself&#10;Small vocabulary fixes&#10;Removed removeUser function in PKI" />
     <MESSAGE value="flexible number of encryptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="flexible number of encryptions" />
+    <MESSAGE value="EP port is given as command line argument" />
+    <option name="LAST_COMMIT_MESSAGE" value="EP port is given as command line argument" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

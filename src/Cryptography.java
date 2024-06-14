@@ -23,6 +23,7 @@ public class Cryptography {
         aesCipher.init(Cipher.ENCRYPT_MODE, secretKey);
         byte[] encryptedData = aesCipher.doFinal(message.body.getBytes());
         byte[] encryptedRoute = aesCipher.doFinal(message.route.getBytes());
+        byte[] encryptedSender = aesCipher.doFinal(message.sender.getBytes());
 
         Cipher rsaCipher = Cipher.getInstance("RSA");
         rsaCipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -30,7 +31,7 @@ public class Cryptography {
 
         Message encryptedMessage = new Message(
                 Base64.getEncoder().encodeToString(encryptedKey) + "::" + Base64.getEncoder().encodeToString(encryptedData),
-                message.sender,
+                Base64.getEncoder().encodeToString(encryptedSender),
                 Base64.getEncoder().encodeToString(encryptedRoute));
         encryptedMessage.timestamp = message.timestamp;
         return encryptedMessage;
@@ -43,6 +44,7 @@ public class Cryptography {
         byte[] encryptedKey = Base64.getDecoder().decode(parts[0]);
         byte[] encryptedData = Base64.getDecoder().decode(parts[1]);
         byte[] encryptedRoute = Base64.getDecoder().decode(encryptedMessage.route);
+        byte[] encryptedSender = Base64.getDecoder().decode(encryptedMessage.sender);
 
         Cipher rsaCipher = Cipher.getInstance("RSA");
         rsaCipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -53,8 +55,9 @@ public class Cryptography {
         aesCipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] decryptedData = aesCipher.doFinal(encryptedData);
         byte[] decryptedRoute = aesCipher.doFinal(encryptedRoute);
+        byte[] decryptedSender = aesCipher.doFinal(encryptedSender);
 
-        Message decryptedMessage = new Message(new String(decryptedData), encryptedMessage.sender,new String(decryptedRoute));
+        Message decryptedMessage = new Message(new String(decryptedData), new String(decryptedSender),new String(decryptedRoute));
         decryptedMessage.timestamp = encryptedMessage.timestamp;
         return decryptedMessage;
     }
