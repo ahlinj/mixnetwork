@@ -6,17 +6,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Peer extends Thread{
 
-    int entryPointPort = 50967;
+    int entryPointPort;
 
     private final String userID;
     private final int serverSocketPort;
     private final PublicKey publicKey;
 
 
-    public Peer(String username, int serverSocketPort, PublicKey publicKey) {
+    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
         this.publicKey = publicKey;
+        this.entryPointPort = epPort;
     }
 
     @Override
