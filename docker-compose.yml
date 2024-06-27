@@ -1,0 +1,31 @@
+services:
+  entry-point:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.2
+    stdin_open: true
+    tty: true
+
+  user1:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.3
+    stdin_open: true
+    tty: true
+
+  user2:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.4
+    stdin_open: true
+    tty: true
+
+networks:
+  mix-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
