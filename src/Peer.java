@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Peer extends Thread{
+    String myIp;
     String entryPointIp;
     int entryPointPort;
 
@@ -13,12 +14,13 @@ public class Peer extends Thread{
     private final PublicKey publicKey;
 
 
-    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort, String entryPointIp) {
+    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort, String entryPointIp, String myIp) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
         this.publicKey = publicKey;
         this.entryPointPort = epPort;
         this.entryPointIp = entryPointIp;
+        this.myIp = myIp;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class Peer extends Thread{
             outObject.writeObject(protocol);
             outObject.flush();
             //send your information to entry point
-            outObject.writeUTF(userID+":"+serverSocketPort+":"+PKI.publicKeyToString(publicKey));
+            outObject.writeUTF(userID+":"+serverSocketPort+":"+PKI.publicKeyToString(publicKey)+":"+myIp);
             outObject.flush();
 
             //receive hashmaps from entry point when first connected
@@ -52,6 +54,11 @@ public class Peer extends Thread{
             Map<String, PublicKey> receivedPKMap = (ConcurrentHashMap<String, PublicKey>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedPKMap);
             PKI.PKusermap.putAll(receivedPKMap);
+
+            Map<String, String> receivedIpMap = (ConcurrentHashMap<String, String>) inObject.readObject();
+            //System.out.println("Received hashmap from server: " + receivedIpMap);
+            PKI.ipUserMap.putAll(receivedIpMap);
+
             socketEP.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -95,9 +102,13 @@ public class Peer extends Thread{
             //System.out.println("Received hashmap from server: " + receivedPKMap);
             PKI.PKusermap.putAll(receivedPKMap);
 
+            Map<String, String> receivedIpMap = (ConcurrentHashMap<String, String>) inObject.readObject();
+            //System.out.println("Received hashmap from server: " + receivedIpMap);
+            PKI.ipUserMap.putAll(receivedIpMap);
+
             System.out.println("--------------------------------");
             System.out.println("Users in the network:");
-            for (String key : PKI.portUserMap.keySet()) {
+            for (String key : PKI.ipUserMap.keySet()) {
                 if (!key.equals("EP") && !key.equals(Main.username.get())) {
                     System.out.print(key+", ");
                 }

@@ -31,26 +31,31 @@ public class EntryPointHandler extends Thread{
         String clientMessageUsername;
         String clientMessagePort;
         String clientMessagePublicKey;
+        String clientMessageIp;
         try {
             //receive peer information
             String clientMessage = in.readUTF();
             clientMessageUsername = clientMessage.split(":")[0];
             clientMessagePort = clientMessage.split(":")[1];
             clientMessagePublicKey = clientMessage.split(":")[2];
+            clientMessageIp = clientMessage.split(":")[3];
 
             PKI.PKusermap.put(clientMessageUsername, PKI.stringToPublicKey(clientMessagePublicKey));
             PKI.portUserMap.put(clientMessageUsername, Integer.parseInt(clientMessagePort));
             PKI.addUserLayer(clientMessageUsername);
+            PKI.ipUserMap.put(clientMessageUsername,clientMessageIp);
 
-            //System.out.println("Username: " + clientMessageUsername);
-            //System.out.println("EntryPointListener port: " + clientMessagePort);
-            //System.out.println("Public key: " + clientMessagePublicKey);
+            System.out.println("Username: " + clientMessageUsername);
+            System.out.println("EntryPointListener port: " + clientMessagePort);
+            System.out.println("Public key: " + clientMessagePublicKey);
+            System.out.println("Ip: " + clientMessageIp);
 
             //send hashmaps
             ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
             outObject.writeObject(PKI.portUserMap);
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
+            outObject.writeObject(PKI.ipUserMap);
             outObject.flush();
             clientSocket.close();
         } catch (Exception e) {
@@ -88,6 +93,7 @@ public class EntryPointHandler extends Thread{
             outObject.writeObject(PKI.portUserMap);
             outObject.writeObject(PKI.layerUserMap);
             outObject.writeObject(PKI.PKusermap);
+            outObject.writeObject(PKI.ipUserMap);
             outObject.flush();
             clientSocket.close();
         } catch (IOException e) {

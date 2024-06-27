@@ -65,7 +65,7 @@ public class Main {
 
             PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
             peerListener.start();
-            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get(),62420,args[0]);
+            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get(),62420,args[0],myIp);
             peer.start();
             userInterface.messageExchange(peer);
         }
