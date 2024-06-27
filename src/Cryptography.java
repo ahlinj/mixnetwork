@@ -33,7 +33,7 @@ public class Cryptography {
                 Base64.getEncoder().encodeToString(encryptedKey) + "::" + Base64.getEncoder().encodeToString(encryptedData),
                 Base64.getEncoder().encodeToString(encryptedSender),
                 Base64.getEncoder().encodeToString(encryptedRoute));
-        encryptedMessage.timestamp = message.timestamp;
+            encryptedMessage.timestamp = message.timestamp;
         return encryptedMessage;
     }
 

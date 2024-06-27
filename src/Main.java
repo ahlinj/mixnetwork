@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.*;
 import java.security.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static String myIp;
@@ -16,7 +17,8 @@ public class Main {
         if (args[0].equals("EP")) {
             Main.findMyIp();
             Main.username.set(args[0]);
-            Main.initializeServerSocket();
+            PKI.ipUserMap.put(username.get(),myIp);
+            Main.initializeServerSocket(62420);
 
             EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get(), 5);
             entryPointListener.start();
@@ -57,15 +59,15 @@ public class Main {
         } else {
             Main.findMyIp();
             Main.username.set(userInterface.enterUsername());
-            Main.initializeServerSocket();
+            PKI.ipUserMap.put(username.get(),myIp);
+            Main.initializeServerSocket(62420);
             pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
 
             PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
             peerListener.start();
-            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get(), Integer.parseInt(args[0]));
+            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get(),62420,args[0]);
             peer.start();
             userInterface.messageExchange(peer);
-
         }
     }
 
@@ -80,7 +82,7 @@ public class Main {
                         InetAddress address = (InetAddress) addr.nextElement();
                         myIp = address.getHostAddress().replace("/", "");
                         if (myIp.length() <= 15) {
-                            //System.out.println("LocalIp: " + myIp);
+                            System.out.println("LocalIp: " + myIp);
                         }
                     }
                 }
@@ -90,9 +92,9 @@ public class Main {
         }
     }
 
-    public static void initializeServerSocket() {
+    public static void initializeServerSocket(int portNum) {
         try {
-            ServerSocket ss = new ServerSocket(0);
+            ServerSocket ss = new ServerSocket(portNum);
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
             PKI.portUserMap.put(username.get(),ss.getLocalPort());

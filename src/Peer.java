@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Peer extends Thread{
-
+    String entryPointIp;
     int entryPointPort;
 
     private final String userID;
@@ -13,11 +13,12 @@ public class Peer extends Thread{
     private final PublicKey publicKey;
 
 
-    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort) {
+    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort, String entryPointIp) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
         this.publicKey = publicKey;
         this.entryPointPort = epPort;
+        this.entryPointIp = entryPointIp;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Peer extends Thread{
 
     private void initialConnection() {
         try {
-            Socket socketEP = new Socket("localhost", entryPointPort);
+            Socket socketEP = new Socket(entryPointIp, entryPointPort);
             //System.out.println("Connected from port: " + socketEP.getLocalPort() + " to port: " + entryPointPort);
 
             ObjectOutputStream outObject = new ObjectOutputStream(socketEP.getOutputStream());
@@ -58,7 +59,7 @@ public class Peer extends Thread{
     }
     public void sendMessage(Message message, int sendTo){
         try {
-            Socket socket = new Socket("localhost", sendTo);
+            Socket socket = new Socket(entryPointIp, sendTo);
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(Protocol.MESSAGE);
             outObject.flush();
@@ -75,7 +76,7 @@ public class Peer extends Thread{
     }
     public void updateUsermaps(){
         try {
-            Socket socketEP = new Socket("localhost", entryPointPort);
+            Socket socketEP = new Socket(entryPointIp, entryPointPort);
             ObjectOutputStream outObject = new ObjectOutputStream(socketEP.getOutputStream());
             Protocol protocol = Protocol.UPDATE;
             outObject.writeObject(protocol);
@@ -110,7 +111,7 @@ public class Peer extends Thread{
     public void removeUser(){
 
         try {
-            Socket socketEP = new Socket("localhost", entryPointPort);
+            Socket socketEP = new Socket(entryPointIp, entryPointPort);
             ObjectOutputStream outObject = new ObjectOutputStream(socketEP.getOutputStream());
             Protocol protocol = Protocol.REMOVE;
             outObject.writeObject(protocol);

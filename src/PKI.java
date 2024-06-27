@@ -9,6 +9,7 @@ public class PKI {
     public static Map<String, PublicKey> PKusermap = new ConcurrentHashMap<>();
     public static Map<String, Integer> portUserMap = new ConcurrentHashMap<>();
     public static Map<String, Integer> layerUserMap = new ConcurrentHashMap<>();
+    public static Map<String, String> ipUserMap = new ConcurrentHashMap<>();
 
     public static String setPrKeyGetPubKey(){
         try{
