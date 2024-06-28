@@ -6,6 +6,7 @@ public class Message implements Serializable {
     String sender;
     String body;
     String route;
+    private static final char PADDING_CHAR = '*';
 
 
 
@@ -33,6 +34,22 @@ public class Message implements Serializable {
                 message.sender,
                 save
         );
+    }
+
+    public static String addPadding(String data, int FIXED_LENGTH){
+        StringBuilder paddedData = new StringBuilder(data);
+        while (paddedData.length() < FIXED_LENGTH) {
+            paddedData.append(PADDING_CHAR);
+        }
+        return paddedData.toString();
+    }
+
+    public static String removePadding(String data){
+        int paddingStartIndex = data.indexOf(PADDING_CHAR);
+        if (paddingStartIndex == -1) {
+            return data;
+        }
+        return data.substring(0, paddingStartIndex);
     }
 
 }

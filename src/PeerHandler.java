@@ -53,7 +53,7 @@ public class PeerHandler extends Thread{
                 }else{
                     System.out.println("--------------------------------");
                     System.out.println("YOU HAVE RECEIVED A MESSAGE:");
-                    System.out.println("Received message: "+message.body);
+                    System.out.println("Received message: "+Message.removePadding(message.body));
                     System.out.println("Sender: "+message.sender);
                     System.out.println("Timestamp: "+ LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestamp), ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     System.out.println("--------------------------------");
