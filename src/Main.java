@@ -19,7 +19,6 @@ public class Main {
 
             EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get());
             entryPointListener.start();
-
 /*
             while (true) {
                 try {
@@ -60,9 +59,9 @@ public class Main {
             Main.initializeServerSocket(Constants.SERVICE_PORT);
             PublicKey pk = PKI.setPrKeyGetPubKey();
 
-            PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
+            PeerListener peerListener = new PeerListener(serverSocket.get(),Main.prKey.get());
             peerListener.start();
-            Peer peer = new Peer(Main.username.get(), Main.port.get(), pk, Constants.SERVICE_PORT,args[0],myIp, Constants.NUM_ENCRYPTIONS);
+            Peer peer = new Peer(username.get(),port.get(), pk, Constants.SERVICE_PORT,args[0],myIp, Constants.NUM_ENCRYPTIONS);
             peer.start();
             userInterface.messageExchange(peer);
         }

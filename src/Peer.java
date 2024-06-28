@@ -99,18 +99,22 @@ public class Peer extends Thread{
             ObjectInputStream inObject = new ObjectInputStream(socketEP.getInputStream());
             Map<String, Integer> receivedPortMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedPortMap);
+            PKI.portUserMap.clear();
             PKI.portUserMap.putAll(receivedPortMap);
 
             Map<String, Integer> receivedLayerMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedLayerMap);
+            PKI.layerUserMap.clear();
             PKI.layerUserMap.putAll(receivedLayerMap);
 
             Map<String, PublicKey> receivedPKMap = (ConcurrentHashMap<String, PublicKey>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedPKMap);
+            PKI.PKusermap.clear();
             PKI.PKusermap.putAll(receivedPKMap);
 
             Map<String, String> receivedIpMap = (ConcurrentHashMap<String, String>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedIpMap);
+            PKI.ipUserMap.clear();
             PKI.ipUserMap.putAll(receivedIpMap);
 
             System.out.println("--------------------------------");
