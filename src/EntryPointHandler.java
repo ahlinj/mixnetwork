@@ -77,7 +77,7 @@ public class EntryPointHandler extends Thread{
                 lastKey = key;
             }
 
-            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), 62420);
+            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Main.SERVICE_PORT);
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(message);
             outObject.flush();
