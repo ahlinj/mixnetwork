@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Transitioning to Docker version&#10;added more users in docker-compose.yml">
-      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Padding">
+      <change afterPath="$PROJECT_DIR$/run_java_EP.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_java_user.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <workItem from="1718494024407" duration="398000" />
       <workItem from="1718533049133" duration="80000" />
       <workItem from="1719216556027" duration="1930000" />
-      <workItem from="1719484905539" duration="24304000" />
+      <workItem from="1719484905539" duration="26685000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -381,7 +381,13 @@
       <option name="presentableId" value="LOCAL−00045" />
       <updated>1719584868017</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL−00046" summary="Padding">
+      <created>1719586633203</created>
+      <option name="number" value="LOCAL−00046" />
+      <option name="presentableId" value="LOCAL−00046" />
+      <updated>1719586633203</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +405,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="connect to all the peers in the network" />
     <MESSAGE value="updated Cryptograhy class to work with Message class" />
     <MESSAGE value="added enterReceiver function" />
     <MESSAGE value="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes" />
@@ -424,7 +429,8 @@
     <MESSAGE value="Dockerfile and docker-compose.yml" />
     <MESSAGE value="Storing IPs in a map&#10;Show Users in Network compatible with Docker" />
     <MESSAGE value="Transitioning to Docker version&#10;added more users in docker-compose.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transitioning to Docker version&#10;added more users in docker-compose.yml" />
+    <MESSAGE value="Padding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Padding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
