@@ -11,11 +11,12 @@ public class PKI {
     public static Map<String, Integer> layerUserMap = new ConcurrentHashMap<>();
     public static Map<String, String> ipUserMap = new ConcurrentHashMap<>();
 
-    public static String setPrKeyGetPubKey(){
+    public static PublicKey setPrKeyGetPubKey(){
         try{
             KeyPair kp = Cryptography.generateRSAKey();
             Main.prKey.set(kp.getPrivate());
-            return publicKeyToString(kp.getPublic());
+            //System.out.println(kp.getPublic());
+            return kp.getPublic();
         }catch(NoSuchAlgorithmException e){
             e.printStackTrace();
         }

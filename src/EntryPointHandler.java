@@ -45,10 +45,10 @@ public class EntryPointHandler extends Thread{
             PKI.addUserLayer(clientMessageUsername);
             PKI.ipUserMap.put(clientMessageUsername,clientMessageIp);
 
-            System.out.println("Username: " + clientMessageUsername);
-            System.out.println("EntryPointListener port: " + clientMessagePort);
-            System.out.println("Public key: " + clientMessagePublicKey);
-            System.out.println("Ip: " + clientMessageIp);
+            //System.out.println("Username: " + clientMessageUsername);
+            //System.out.println("EntryPointListener port: " + clientMessagePort);
+            //System.out.println("Public key: " + clientMessagePublicKey);
+            //System.out.println("Ip: " + clientMessageIp);
 
             //send hashmaps
             ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -73,11 +73,11 @@ public class EntryPointHandler extends Thread{
                 String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
                 System.out.println(key);
                 message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
-                message = Message.addRouteInfo(message, PKI.portUserMap.get(key).toString());
+                message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
                 lastKey = key;
             }
 
-            Socket socket = new Socket("localhost", PKI.portUserMap.get(lastKey));
+            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), 62420);
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(message);
             outObject.flush();
@@ -108,6 +108,7 @@ public class EntryPointHandler extends Thread{
             PKI.portUserMap.remove(removeUsername);
             PKI.PKusermap.remove(removeUsername);
             PKI.layerUserMap.remove(removeUsername);
+            PKI.ipUserMap.remove(removeUsername);
             clientSocket.close();
         } catch (IOException e) {
             throw new RuntimeException(e);

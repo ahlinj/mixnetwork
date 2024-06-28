@@ -23,6 +23,38 @@ services:
     stdin_open: true
     tty: true
 
+  user3:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.5
+    stdin_open: true
+    tty: true
+
+  user4:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.6
+    stdin_open: true
+    tty: true
+
+  user5:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.7
+    stdin_open: true
+    tty: true
+
+  user6:
+    build: .
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.8
+    stdin_open: true
+    tty: true
+
 networks:
   mix-network:
     driver: bridge

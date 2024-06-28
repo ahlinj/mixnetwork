@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Dockerfile and docker-compose.yml">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Storing IPs in a map&#10;Show Users in Network compatible with Docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EntryPointHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntryPointHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EntryPointListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntryPointListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PeerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.EntryPoint">
+  <component name="RunManager" selected="Application.Allow multiple instances">
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Mixnet" />
@@ -111,7 +113,7 @@
       <workItem from="1718494024407" duration="398000" />
       <workItem from="1718533049133" duration="80000" />
       <workItem from="1719216556027" duration="1930000" />
-      <workItem from="1719484905539" duration="16766000" />
+      <workItem from="1719484905539" duration="22542000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -371,7 +373,13 @@
       <option name="presentableId" value="LOCAL−00043" />
       <updated>1719516460848</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL−00044" summary="Storing IPs in a map&#10;Show Users in Network compatible with Docker">
+      <created>1719518517300</created>
+      <option name="number" value="LOCAL−00044" />
+      <option name="presentableId" value="LOCAL−00044" />
+      <updated>1719518517300</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-sending all the hash maps to clients and storing them locally" />
     <MESSAGE value="-getting the hasmaps when connecting to the entrypoint" />
     <MESSAGE value="connect to all the peers in the network" />
     <MESSAGE value="updated Cryptograhy class to work with Message class" />
@@ -414,7 +421,8 @@
     <MESSAGE value="Encrypting Message.sender" />
     <MESSAGE value="Transition to Docker" />
     <MESSAGE value="Dockerfile and docker-compose.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile and docker-compose.yml" />
+    <MESSAGE value="Storing IPs in a map&#10;Show Users in Network compatible with Docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Storing IPs in a map&#10;Show Users in Network compatible with Docker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

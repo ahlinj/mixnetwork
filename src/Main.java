@@ -2,15 +2,12 @@ import java.io.IOException;
 import java.net.*;
 import java.security.*;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-
 public class Main {
     public static String myIp;
     public static final ThreadLocal<String> username = new ThreadLocal<>();
     public static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
     public static final ThreadLocal<Integer> port = new ThreadLocal<>();
     public static final ThreadLocal<PrivateKey> prKey = new ThreadLocal<>();
-    public static final ThreadLocal<PublicKey> pbKey = new ThreadLocal<>();
 
     public static void main(String[] args) throws Exception {
         UserInterface userInterface = new UserInterface();
@@ -61,11 +58,11 @@ public class Main {
             Main.username.set(userInterface.enterUsername());
             PKI.ipUserMap.put(username.get(),myIp);
             Main.initializeServerSocket(62420);
-            pbKey.set(PKI.stringToPublicKey(PKI.setPrKeyGetPubKey()));
+            PublicKey pk = PKI.setPrKeyGetPubKey();
 
             PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
             peerListener.start();
-            Peer peer = new Peer(Main.username.get(), Main.port.get(), Main.pbKey.get(),62420,args[0],myIp);
+            Peer peer = new Peer(Main.username.get(), Main.port.get(), pk,62420,args[0],myIp);
             peer.start();
             userInterface.messageExchange(peer);
         }
@@ -98,7 +95,7 @@ public class Main {
             serverSocket.set(ss);
             port.set(ss.getLocalPort());
             PKI.portUserMap.put(username.get(),ss.getLocalPort());
-            System.out.println("Your port: " + ss.getLocalPort());
+            //System.out.println("Your port: " + ss.getLocalPort());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,7 +108,7 @@ public class Main {
             if (ss != null && !ss.isClosed()) {
                 peer.removeUser();
                 ss.close();
-                System.out.println("Server socket closed for thread: "+ss.getLocalPort());
+                //System.out.println("Server socket closed for thread: "+ss.getLocalPort());
             }
         } catch (IOException e) {
             e.printStackTrace();

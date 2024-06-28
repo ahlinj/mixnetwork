@@ -21,7 +21,7 @@ public class UserInterface {
             if(recPK != null) {
                 try {
                     message = Cryptography.encrypt(message,recPK);
-                    message = Message.addRouteInfo(message,PKI.portUserMap.get(rec).toString());
+                    message = Message.addRouteInfo(message,PKI.ipUserMap.get(rec));
                     peer.sendMessage(message,PKI.portUserMap.get("EP"));
                     messageExchange(peer);
                 } catch (Exception e) {
