@@ -12,15 +12,17 @@ public class Peer extends Thread{
     private final String userID;
     private final int serverSocketPort;
     private final PublicKey publicKey;
+    private final int numberOfEncryptions;
 
 
-    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort, String entryPointIp, String myIp) {
+    public Peer(String username, int serverSocketPort, PublicKey publicKey, int epPort, String entryPointIp, String myIp, int numberOfEncryptions) {
         this.userID = username;
         this.serverSocketPort = serverSocketPort;
         this.publicKey = publicKey;
         this.entryPointPort = epPort;
         this.entryPointIp = entryPointIp;
         this.myIp = myIp;
+        this.numberOfEncryptions = numberOfEncryptions;
     }
 
     @Override
@@ -64,20 +66,25 @@ public class Peer extends Thread{
             System.err.println(e.getMessage());
         }
     }
-    public void sendMessage(Message message, int sendTo){
+    public void sendMessage(Message message){
         try {
-            Socket socket = new Socket(entryPointIp, sendTo);
+            String lastKey = null;
+            for (int i = 0; i < numberOfEncryptions; i++) {
+                String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
+                System.out.println(key);
+                message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
+                message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
+                lastKey = key;
+            }
+            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Main.SERVICE_PORT);
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
-            outObject.writeObject(Protocol.MESSAGE);
-            outObject.flush();
             outObject.writeObject(message);
             outObject.flush();
             socket.close();
             System.out.println("--------------------------------");
             System.out.println("Message sent!");
             System.out.println("--------------------------------");
-            socket.close();
-        }catch(IOException e){
+        }catch(Exception e){
             System.err.println(e.getMessage());
         }
     }

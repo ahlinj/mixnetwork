@@ -3,11 +3,9 @@ import java.net.Socket;
 
 public class EntryPointHandler extends Thread{
     private Socket clientSocket;
-    private int numberOfEncryptions;
 
-    public EntryPointHandler(Socket clientSocket, int numberOfEncryptions) {
+    public EntryPointHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
-        this.numberOfEncryptions = numberOfEncryptions;
     }
 
     @Override
@@ -17,7 +15,6 @@ public class EntryPointHandler extends Thread{
             Protocol protocol = (Protocol) in.readObject();
             switch (protocol) {
                 case CONNECT -> handleConnection(in);
-                case MESSAGE -> receiveMessages(in);
                 case UPDATE -> updateMaps();
                 case REMOVE -> removeFromMaps(in);
                 default -> System.out.println("Unknown protocol: " + protocol);
@@ -57,31 +54,6 @@ public class EntryPointHandler extends Thread{
             outObject.writeObject(PKI.PKusermap);
             outObject.writeObject(PKI.ipUserMap);
             outObject.flush();
-            clientSocket.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-    private void receiveMessages(ObjectInputStream in) {
-        try {
-            Message message = (Message) in.readObject();
-            //System.out.println("Received message: " + message.body);
-            //System.out.println("Route: "+message.route);
-
-            String lastKey = null;
-            for (int i = 0; i < numberOfEncryptions; i++) {
-                String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-                System.out.println(key);
-                message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
-                message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
-                lastKey = key;
-            }
-
-            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Main.SERVICE_PORT);
-            ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
-            outObject.writeObject(message);
-            outObject.flush();
-            socket.close();
             clientSocket.close();
         } catch (Exception e) {
             throw new RuntimeException(e);

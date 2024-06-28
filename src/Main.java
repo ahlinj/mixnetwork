@@ -5,6 +5,7 @@ import java.util.*;
 public class Main {
     public static String myIp;
     public final static int SERVICE_PORT = 62420;
+    public final static int NUM_ENCRYPTIONS = 5;
     public static final ThreadLocal<String> username = new ThreadLocal<>();
     public static final ThreadLocal<ServerSocket> serverSocket = new ThreadLocal<>();
     public static final ThreadLocal<Integer> port = new ThreadLocal<>();
@@ -18,7 +19,7 @@ public class Main {
             PKI.ipUserMap.put(username.get(),myIp);
             Main.initializeServerSocket(SERVICE_PORT);
 
-            EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get(), 5);
+            EntryPointListener entryPointListener = new EntryPointListener(Main.serverSocket.get());
             entryPointListener.start();
 
 /*
@@ -63,7 +64,7 @@ public class Main {
 
             PeerListener peerListener = new PeerListener(Main.serverSocket.get(),Main.prKey.get());
             peerListener.start();
-            Peer peer = new Peer(Main.username.get(), Main.port.get(), pk,SERVICE_PORT,args[0],myIp);
+            Peer peer = new Peer(Main.username.get(), Main.port.get(), pk,SERVICE_PORT,args[0],myIp,NUM_ENCRYPTIONS);
             peer.start();
             userInterface.messageExchange(peer);
         }
