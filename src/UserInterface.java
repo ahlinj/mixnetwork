@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class UserInterface {
     private final Scanner sc;
-    private final int MESSAGE_LENGTH = 256;
 
     public UserInterface() {
         this.sc = new Scanner(System.in);
@@ -16,7 +15,7 @@ public class UserInterface {
             peer.updateUsermaps();
             String rec = enterReceiver(peer);
             String mes = enterMessage();
-            mes = Message.addPadding(mes,MESSAGE_LENGTH);
+            mes = Message.addPadding(mes);
             PublicKey recPK = PKI.PKusermap.get(rec);
             Message message = new Message(mes,Main.username.get(),"-1");
 
@@ -62,7 +61,7 @@ public class UserInterface {
     public String enterMessage(){
         System.out.println("Enter message: ");
         String answer = sc.nextLine();
-        if(answer.length() < MESSAGE_LENGTH){
+        if(answer.length() < Constants.MESSAGE_LENGTH){
             return answer;
         }
         System.out.println("Message has to be less than 256 characters long.");

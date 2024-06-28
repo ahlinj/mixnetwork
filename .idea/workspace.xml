@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="SERVICE_PORT constant in Main">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="users encrypt messages instead of EP">
+      <change afterPath="$PROJECT_DIR$/src/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EntryPointHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntryPointHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EntryPointListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntryPointListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PKI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PeerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +114,7 @@
       <workItem from="1718494024407" duration="398000" />
       <workItem from="1718533049133" duration="80000" />
       <workItem from="1719216556027" duration="1930000" />
-      <workItem from="1719484905539" duration="28372000" />
+      <workItem from="1719484905539" duration="29778000" />
     </task>
     <task id="LOCAL−00001" summary="Cryptograhy/String encryption">
       <created>1708380544649</created>
@@ -403,7 +404,13 @@
       <option name="presentableId" value="LOCAL−00048" />
       <updated>1719602076766</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL−00049" summary="users encrypt messages instead of EP">
+      <created>1719603267105</created>
+      <option name="number" value="LOCAL−00049" />
+      <option name="presentableId" value="LOCAL−00049" />
+      <updated>1719603267105</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +428,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added ClientListener class&#10;updated main to use argument when starting the program&#10;fixed the logic for connecting between the peers&#10;other smaller fixes" />
     <MESSAGE value="introducing Protocol class&#10;added messageExchange function in UI class&#10;refactored Client class" />
     <MESSAGE value="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages" />
     <MESSAGE value="encrypting received message&#10;changing the way Pr and Pb keys get assigned" />
@@ -446,7 +452,8 @@
     <MESSAGE value="Padding" />
     <MESSAGE value="run scripts for EP and users" />
     <MESSAGE value="SERVICE_PORT constant in Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="SERVICE_PORT constant in Main" />
+    <MESSAGE value="users encrypt messages instead of EP" />
+    <option name="LAST_COMMIT_MESSAGE" value="users encrypt messages instead of EP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

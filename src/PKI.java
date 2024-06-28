@@ -5,7 +5,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PKI {
-    public static final int numLayers = 4;
     public static Map<String, PublicKey> PKusermap = new ConcurrentHashMap<>();
     public static Map<String, Integer> portUserMap = new ConcurrentHashMap<>();
     public static Map<String, Integer> layerUserMap = new ConcurrentHashMap<>();
@@ -46,7 +45,7 @@ public class PKI {
 
     public static void addUserLayer(String username){
         SecureRandom sr = new SecureRandom();
-        int layer = sr.nextInt(numLayers)+1;
+        int layer = sr.nextInt(Constants.NUM_LAYERS)+1;
         layerUserMap.put(username,layer);
         //System.out.println("Layer number: "+layer+" has been assigned to: "+username);
     }
@@ -56,7 +55,7 @@ public class PKI {
         SecureRandom sr = new SecureRandom();
         for(Map.Entry<String, Integer> entry : layerUserMap.entrySet()){
             if (!dontShuffle.contains(entry.getKey())) {
-                entry.setValue(sr.nextInt(numLayers) + 1);
+                entry.setValue(sr.nextInt(Constants.NUM_LAYERS) + 1);
             }
         }
     }

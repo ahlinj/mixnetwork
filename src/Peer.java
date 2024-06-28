@@ -76,7 +76,7 @@ public class Peer extends Thread{
                 message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
                 lastKey = key;
             }
-            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Main.SERVICE_PORT);
+            Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Constants.SERVICE_PORT);
             ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
             outObject.writeObject(message);
             outObject.flush();

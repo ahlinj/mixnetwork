@@ -45,7 +45,7 @@ public class PeerHandler extends Thread{
                 //System.out.println("Route: "+message.route);
                 if(!message.route.equals("-1")) {
                     String sendTo = message.route.split("::")[0];
-                    Socket socket = new Socket(sendTo, 62420);
+                    Socket socket = new Socket(sendTo, Constants.SERVICE_PORT);
                     ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
                     outObject.writeObject(message);
                     outObject.flush();

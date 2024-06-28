@@ -48,30 +48,28 @@ public class EntryPointHandler extends Thread{
             //System.out.println("Ip: " + clientMessageIp);
 
             //send hashmaps
-            ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
-            outObject.writeObject(PKI.portUserMap);
-            outObject.writeObject(PKI.layerUserMap);
-            outObject.writeObject(PKI.PKusermap);
-            outObject.writeObject(PKI.ipUserMap);
-            outObject.flush();
-            clientSocket.close();
+            sendMaps();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
     private void updateMaps(){
         try {
-            ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
-            outObject.writeObject(PKI.portUserMap);
-            outObject.writeObject(PKI.layerUserMap);
-            outObject.writeObject(PKI.PKusermap);
-            outObject.writeObject(PKI.ipUserMap);
-            outObject.flush();
-            clientSocket.close();
+            sendMaps();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void sendMaps() throws IOException {
+        ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
+        outObject.writeObject(PKI.portUserMap);
+        outObject.writeObject(PKI.layerUserMap);
+        outObject.writeObject(PKI.PKusermap);
+        outObject.writeObject(PKI.ipUserMap);
+        outObject.flush();
+        clientSocket.close();
     }
 
     private void removeFromMaps(ObjectInputStream in) {
