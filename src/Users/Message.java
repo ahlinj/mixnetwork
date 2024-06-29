@@ -1,5 +1,6 @@
+package Users;
+
 import java.io.Serializable;
-import java.security.PublicKey;
 
 public class Message implements Serializable {
     long timestamp;

@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Constants class implementation">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="fixed updating maps when user removed">
+      <change afterPath="$PROJECT_DIR$/src/Common/Protocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dockerfile-entrypoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dockerfile-users" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntryPoint/ConstantsEP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntryPoint/EntryPointHandlerEP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntryPoint/EntryPointListenerEP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntryPoint/MainEP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntryPoint/PKIEP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Start.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ep_run_java.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user_run_java.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_java_EP.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_java_user.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cryptography.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Cryptography.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntryPointHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntryPointListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PKI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PKI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Peer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PeerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PeerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PeerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PeerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +50,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="NamedScopeManager">
+    <scope name="Scope" pattern="" />
+  </component>
   <component name="ProjectId" id="2cawA67n3JtXnbTgyDT1cUAE70b" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,14 +65,27 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Jaka/Famnit/2/Programiranje 3",
+    "last_opened_file_path": "C:/Users/Jaka/Famnit/2/Programiranje 3/Mixnetwork/Mixnet/src/EntryPoint",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Allow multiple instances">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="EntryPoint" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jaka\Famnit\2\Programiranje 3\Mixnetwork\Mixnet\src\EntryPoint" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jaka\Famnit\2\Programiranje 3\Mixnetwork\Mixnet\src" />
+      <recent name="C:\Users\Jaka\Famnit\2\Programiranje 3\Mixnetwork\Mixnet\src\Users" />
+      <recent name="C:\Users\Jaka\Famnit\2\Programiranje 3\Mixnetwork\Mixnet\src\EntryPoint" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.EntryPoint">
     <configuration name="Allow multiple instances" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Users.Main" />
       <module name="Mixnet" />
       <option name="PROGRAM_PARAMETERS" value="172.18.0.2" />
       <method v="2">
@@ -51,16 +93,15 @@
       </method>
     </configuration>
     <configuration name="Cryptography" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Cryptography" />
+      <option name="MAIN_CLASS_NAME" value="Users.Cryptography" />
       <module name="Mixnet" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="EntryPoint" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="EntryPoint.MainEP" />
       <module name="Mixnet" />
-      <option name="PROGRAM_PARAMETERS" value="EP" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,13 +150,7 @@
       <workItem from="1718494024407" duration="398000" />
       <workItem from="1718533049133" duration="80000" />
       <workItem from="1719216556027" duration="1930000" />
-      <workItem from="1719484905539" duration="33044000" />
-    </task>
-    <task id="LOCAL−00002" summary="String encryption/decryption">
-      <created>1708382553658</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1708382553658</updated>
+      <workItem from="1719484905539" duration="48863000" />
     </task>
     <task id="LOCAL−00003" summary="hybrid encryption/decryption">
       <created>1708385918091</created>
@@ -405,7 +440,13 @@
       <option name="presentableId" value="LOCAL−00050" />
       <updated>1719604670836</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL−00051" summary="fixed updating maps when user removed">
+      <created>1719611324677</created>
+      <option name="number" value="LOCAL−00051" />
+      <option name="presentableId" value="LOCAL−00051" />
+      <updated>1719611324677</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed Protocol class&#10;added port of receiver in Message class&#10;messageExchange returns Message now&#10;added sendMessage function in Client&#10;testing sending/receiving messages" />
     <MESSAGE value="encrypting received message&#10;changing the way Pr and Pb keys get assigned" />
     <MESSAGE value="added route in Message class&#10;updated Cryptography to encrypt/decrypt route" />
     <MESSAGE value="implemented Serverhandler and Protocol class" />
@@ -448,7 +488,8 @@
     <MESSAGE value="SERVICE_PORT constant in Main" />
     <MESSAGE value="users encrypt messages instead of EP" />
     <MESSAGE value="Constants class implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Constants class implementation" />
+    <MESSAGE value="fixed updating maps when user removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed updating maps when user removed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

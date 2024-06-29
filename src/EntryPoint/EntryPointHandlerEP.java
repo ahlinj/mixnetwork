@@ -1,10 +1,14 @@
+package EntryPoint;
+
+import Common.Protocol;
+
 import java.io.*;
 import java.net.Socket;
 
-public class EntryPointHandler extends Thread{
+public class EntryPointHandlerEP extends Thread{
     private Socket clientSocket;
 
-    public EntryPointHandler(Socket clientSocket) {
+    public EntryPointHandlerEP(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
 
@@ -37,13 +41,12 @@ public class EntryPointHandler extends Thread{
             clientMessagePublicKey = clientMessage.split(":")[2];
             clientMessageIp = clientMessage.split(":")[3];
 
-            PKI.PKusermap.put(clientMessageUsername, PKI.stringToPublicKey(clientMessagePublicKey));
-            PKI.portUserMap.put(clientMessageUsername, Integer.parseInt(clientMessagePort));
-            PKI.addUserLayer(clientMessageUsername);
-            PKI.ipUserMap.put(clientMessageUsername,clientMessageIp);
+            PKIEP.PKusermap.put(clientMessageUsername, PKIEP.stringToPublicKey(clientMessagePublicKey));
+            PKIEP.portUserMap.put(clientMessageUsername, Integer.parseInt(clientMessagePort));
+            PKIEP.ipUserMap.put(clientMessageUsername,clientMessageIp);
 
             //System.out.println("Username: " + clientMessageUsername);
-            //System.out.println("EntryPointListener port: " + clientMessagePort);
+            //System.out.println("Users.EntryPointListener port: " + clientMessagePort);
             //System.out.println("Public key: " + clientMessagePublicKey);
             //System.out.println("Ip: " + clientMessageIp);
 
@@ -64,10 +67,9 @@ public class EntryPointHandler extends Thread{
 
     private void sendMaps() throws IOException {
         ObjectOutputStream outObject = new ObjectOutputStream(clientSocket.getOutputStream());
-        outObject.writeObject(PKI.portUserMap);
-        outObject.writeObject(PKI.layerUserMap);
-        outObject.writeObject(PKI.PKusermap);
-        outObject.writeObject(PKI.ipUserMap);
+        outObject.writeObject(PKIEP.portUserMap);
+        outObject.writeObject(PKIEP.PKusermap);
+        outObject.writeObject(PKIEP.ipUserMap);
         outObject.flush();
         clientSocket.close();
     }
@@ -75,10 +77,9 @@ public class EntryPointHandler extends Thread{
     private void removeFromMaps(ObjectInputStream in) {
         try {
             String removeUsername = in.readUTF();
-            PKI.portUserMap.remove(removeUsername);
-            PKI.PKusermap.remove(removeUsername);
-            PKI.layerUserMap.remove(removeUsername);
-            PKI.ipUserMap.remove(removeUsername);
+            PKIEP.portUserMap.remove(removeUsername);
+            PKIEP.PKusermap.remove(removeUsername);
+            PKIEP.ipUserMap.remove(removeUsername);
             clientSocket.close();
         } catch (IOException e) {
             throw new RuntimeException(e);

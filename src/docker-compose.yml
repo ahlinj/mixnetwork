@@ -1,0 +1,110 @@
+services:
+  entry-point:
+    build:
+      context: .
+      dockerfile: Dockerfile-entrypoint
+    volumes:
+      - ./EntryPoint:/app/EntryPoint
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.2
+    stdin_open: true
+    tty: true
+
+  user1:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.3
+    stdin_open: true
+    tty: true
+
+  user2:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.4
+    stdin_open: true
+    tty: true
+
+  user3:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.5
+    stdin_open: true
+    tty: true
+
+  user4:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.6
+    stdin_open: true
+    tty: true
+
+  user5:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.7
+    stdin_open: true
+    tty: true
+
+  user6:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.8
+    stdin_open: true
+    tty: true
+
+networks:
+  mix-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16

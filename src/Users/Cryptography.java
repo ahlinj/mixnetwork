@@ -1,11 +1,11 @@
+package Users;
+
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
 import java.util.*;
 
 public class Cryptography {
-
-
     public static KeyPair generateRSAKey() throws NoSuchAlgorithmException {
         SecureRandom random = new SecureRandom();
         KeyPairGenerator KPGenerator = KeyPairGenerator.getInstance("RSA");

@@ -1,3 +1,7 @@
+package Users;
+
+import Common.Protocol;
+
 import java.io.*;
 import java.net.Socket;
 import java.security.PublicKey;
@@ -49,10 +53,6 @@ public class Peer extends Thread{
             //System.out.println("Received hashmap from server: " + receivedPortMap);
             PKI.portUserMap.putAll(receivedPortMap);
 
-            Map<String, Integer> receivedLayerMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
-            //System.out.println("Received hashmap from server: " + receivedLayerMap);
-            PKI.layerUserMap.putAll(receivedLayerMap);
-
             Map<String, PublicKey> receivedPKMap = (ConcurrentHashMap<String, PublicKey>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedPKMap);
             PKI.PKusermap.putAll(receivedPKMap);
@@ -71,7 +71,7 @@ public class Peer extends Thread{
             String lastKey = null;
             for (int i = 0; i < numberOfEncryptions; i++) {
                 String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-                System.out.println(key);
+                //System.out.println(key);
                 message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
                 message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
                 lastKey = key;
@@ -101,11 +101,6 @@ public class Peer extends Thread{
             //System.out.println("Received hashmap from server: " + receivedPortMap);
             PKI.portUserMap.clear();
             PKI.portUserMap.putAll(receivedPortMap);
-
-            Map<String, Integer> receivedLayerMap = (ConcurrentHashMap<String, Integer>) inObject.readObject();
-            //System.out.println("Received hashmap from server: " + receivedLayerMap);
-            PKI.layerUserMap.clear();
-            PKI.layerUserMap.putAll(receivedLayerMap);
 
             Map<String, PublicKey> receivedPKMap = (ConcurrentHashMap<String, PublicKey>) inObject.readObject();
             //System.out.println("Received hashmap from server: " + receivedPKMap);

@@ -1,3 +1,5 @@
+package Users;
+
 import java.security.PublicKey;
 import java.util.Scanner;
 
@@ -64,7 +66,7 @@ public class UserInterface {
         if(answer.length() < Constants.MESSAGE_LENGTH){
             return answer;
         }
-        System.out.println("Message has to be less than 256 characters long.");
+        System.out.println("Users.Message has to be less than 256 characters long.");
         return null;
     }
 

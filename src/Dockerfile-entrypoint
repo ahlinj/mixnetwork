@@ -1,0 +1,7 @@
+FROM openjdk:24-jdk-slim
+WORKDIR /app
+COPY /EntryPoint /app/EntryPoint
+COPY /Common /app/Common
+COPY ep_run_java.sh /app/ep_run_java.sh
+RUN chmod +x /app/ep_run_java.sh
+CMD ["bash"]
