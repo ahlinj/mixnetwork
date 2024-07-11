@@ -102,6 +102,67 @@ services:
     stdin_open: true
     tty: true
 
+  user7:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.9
+    stdin_open: true
+    tty: true
+
+  user8:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.10
+    stdin_open: true
+    tty: true
+
+  user9:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.11
+    stdin_open: true
+    tty: true
+
+  user10:
+    depends_on:
+      - entry-point
+    build:
+      context: .
+      dockerfile: Dockerfile-users
+    volumes:
+      - ./Users:/app/Users
+      - ./Common:/app/Common
+    networks:
+      mix-network:
+        ipv4_address: 172.18.0.12
+    stdin_open: true
+    tty: true
+
+
 networks:
   mix-network:
     driver: bridge

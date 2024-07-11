@@ -69,6 +69,7 @@ public class Peer extends Thread{
     public void sendMessage(Message message){
         try {
             String lastKey = null;
+            //System.out.println("Starting time: "+System.currentTimeMillis());
             for (int i = 0; i < numberOfEncryptions; i++) {
                 String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
                 //System.out.println(key);

@@ -49,6 +49,7 @@ public class PeerHandler extends Thread{
                     outObject.flush();
                     socket.close();
                 }else{
+                    //System.out.println("Ending time: "+System.currentTimeMillis());
                     System.out.println("--------------------------------");
                     System.out.println("YOU HAVE RECEIVED A MESSAGE:");
                     System.out.println("Received message: "+Message.removePadding(message.body));
