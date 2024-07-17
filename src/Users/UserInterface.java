@@ -23,8 +23,17 @@ public class UserInterface {
 
             if(recPK != null) {
                 try {
+                    //System.out.println("Before encryption: ");
+                    //System.out.println("Body: "+message.body);
+                    //System.out.println("Sender: "+message.sender);
+                    //System.out.println("Route: "+message.route);
                     message = Cryptography.encrypt(message,recPK);
+                    //System.out.println("Encryption num.: 1");
+                    //System.out.println("Body: "+message.body);
+                    //System.out.println("Sender: "+message.sender);
+                    //System.out.println("Route: "+message.route);
                     message = Message.addRouteInfo(message,PKI.ipUserMap.get(rec));
+                    //System.out.println("Added route info: "+message.route);
                     peer.sendMessage(message);
                     messageExchange(peer);
                 } catch (Exception e) {

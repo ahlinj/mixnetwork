@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="Project restructure">
+    <list default="true" id="b677658a-7004-4f6a-b6a1-8f2625841b14" name="Changes" comment="small adjustments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EntryPoint/ConstantsEP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntryPoint/ConstantsEP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Start.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/src/Start.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Peer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/PeerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PeerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jaka/Famnit/2/Programiranje 3/Mixnetwork/Mixnet/src/EntryPoint&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jaka/Famnit/2/Programiranje 3&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
@@ -130,13 +126,8 @@
       <workItem from="1719216556027" duration="1930000" />
       <workItem from="1719484905539" duration="50901000" />
       <workItem from="1719695602337" duration="643000" />
-      <workItem from="1720702095611" duration="14852000" />
-    </task>
-    <task id="LOCAL−00004" summary="IP, port, serverSocket">
-      <created>1708465590728</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1708465590728</updated>
+      <workItem from="1720702095611" duration="14987000" />
+      <workItem from="1721235536511" duration="6906000" />
     </task>
     <task id="LOCAL−00005" summary="PKI - addUser">
       <created>1708550436422</created>
@@ -426,7 +417,13 @@
       <option name="presentableId" value="LOCAL−00052" />
       <updated>1719669598285</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL−00053" summary="small adjustments">
+      <created>1720742307666</created>
+      <option name="number" value="LOCAL−00053" />
+      <option name="presentableId" value="LOCAL−00053" />
+      <updated>1720742307666</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added route in Message class&#10;updated Cryptography to encrypt/decrypt route" />
     <MESSAGE value="implemented Serverhandler and Protocol class" />
     <MESSAGE value="adding destination route info" />
     <MESSAGE value="getRandomEntryFromMap function in PKI class" />
@@ -469,7 +465,8 @@
     <MESSAGE value="Constants class implementation" />
     <MESSAGE value="fixed updating maps when user removed" />
     <MESSAGE value="Project restructure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project restructure" />
+    <MESSAGE value="small adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="small adjustments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

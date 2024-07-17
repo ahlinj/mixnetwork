@@ -72,9 +72,14 @@ public class Peer extends Thread{
             //System.out.println("Starting time: "+System.currentTimeMillis());
             for (int i = 0; i < numberOfEncryptions; i++) {
                 String key = PKI.getRandomEntryFromMap(PKI.PKusermap).getKey();
-                //System.out.println(key);
+                //System.out.println("Random peer in the network: "+key);
                 message = Cryptography.encrypt(message, PKI.PKusermap.get(key));
+                //System.out.println("Encryption num.: "+i+2);
+                //System.out.println("Body: "+message.body);
+                //System.out.println("Sender: "+message.sender);
+                //System.out.println("Route: "+message.route);
                 message = Message.addRouteInfo(message, PKI.ipUserMap.get(key));
+                //System.out.println("Added route info: "+message.route);
                 lastKey = key;
             }
             Socket socket = new Socket(PKI.ipUserMap.get(lastKey), Constants.SERVICE_PORT);
